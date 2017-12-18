@@ -54,6 +54,11 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 1. Installer Git http://git-scm.com/ et sélectionner les choix suivants pendant le processus d'installation :
     + "Use Git from the Windows Command Prompt"
     + "Checkout as-is, commit as-is"
+1. S'il est nécessaire d'utiliser un proxy pour accèder à internet, entrer les commandes suivantes:
+    ```bash
+    npm config set proxy "http://domain\username:password@servername:port/"
+    npm config set https-proxy "http://domain\username:password@servername:port/"
+    ```
 1. Installer les Windows build tools en ouvrant le CMD en tant qu'admin et en tapant la commande suivante:
     ```bash
     npm install --global --production windows-build-tools
