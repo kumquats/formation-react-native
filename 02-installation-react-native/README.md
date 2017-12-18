@@ -1,7 +1,7 @@
 # 2 - Installation de React Native
 
 ## Objectifs
-L'objectif des TPs de cette formation sera de créer un clone de l'application AirBnB. Ce premier TP va permettre de créer un premier projet React native qui servira de base à tous les autres TPS. Ce sera également l'occasion de prendre en main les outils de debuggage avant de rentrer dans le vif du sujet.
+L'objectif des TPs de cette formation sera de créer un clone de l'application Airbnb. Ce premier TP va permettre de créer un projet React native qui servira de base à tous les autres TPS. Ce sera également l'occasion de prendre en main les outils de debuggage avant de rentrer dans le vif du sujet.
 
 ## Préparatifs
 

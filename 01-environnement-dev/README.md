@@ -1,7 +1,7 @@
 # 1 - Installation d'un environnement de développement
 
 ## Objectifs
-Mettre en place les outils nécessaires au développement d'application React Native
+Mettre en place les outils nécessaires au développement d'application React Native.
 
 ## Préparatifs
 1. Activer le mode développeur sur le smartphone en vous rendant dans
