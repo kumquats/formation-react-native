@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, Image, StyleSheet, Platform } from 'react-native';
+import { View, TouchableOpacity, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchHousingDetail } from '../actions/housings';
 import { changeScreen } from '../actions/navigation';
+import { housingDetail as styles } from '../styles';
 import StarRating from '../components/StarRating';
 
 class HousingDetail extends React.Component {
@@ -15,11 +16,8 @@ class HousingDetail extends React.Component {
 		if ( this.props.housing ) {
 			const { listing, pricing_quote } = this.props.housing;
 			return (
-				<View style={styles.housingDetail}>
+				<View>
 					<Image style={styles.picture} source={{ uri: listing.picture.picture }} />
-					<TouchableOpacity style={styles.backButton} onPress={() => this.props.changeScreen( 'list' )}>
-						<Text style={styles.backButtonText}>&lt; Retour</Text>
-					</TouchableOpacity>
 					<View style={styles.container}>
 						<Text style={styles.description}>{ listing.name } <Text style={styles.city}>({ listing.city })</Text></Text>
 						<View style={styles.hostContainer}>
@@ -33,8 +31,14 @@ class HousingDetail extends React.Component {
 							<StarRating rating={listing.star_rating} size={30} />
 							<Text><Text style={styles.price}>{ pricing_quote.rate.amount_formatted }</Text> / nuit</Text>
 						</View>
+						{/*<Text>{ listing.city }</Text>
+						<Text>{ listing.space_type } - { listing.guest_label }</Text>
+			<Text>{ listing.bedroom_label }</Text>*/}
 					</View>
-				</View>
+					<TouchableOpacity style={styles.backButton} onPress={() => this.props.changeScreen( 'list' )}>
+						<Text style={styles.backButtonText}>&lt; Retour à la liste</Text>
+					</TouchableOpacity>
+					</View>
 			);
 		}
 		return null;
@@ -52,74 +56,3 @@ function mapDispatchTopProps( dispatch ) {
 }
 
 export default connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
-
-
-const styles = StyleSheet.create({
-    housingDetail: {
-        flex: 1
-    },
-    picture: {
-        height: 240,
-        marginBottom: 10
-    },
-    container: {
-        marginLeft: 15,
-        marginRight: 15
-    },
-    backButton: {
-        position: 'absolute',
-        backgroundColor: 'transparent',
-        top: Platform.select({ ios: 30, android: 10 }),
-		left: 20,
-    },
-    backButtonText: {
-        color: 'white',
-		fontWeight: 'bold',
-		fontSize: 14,
-    },
-    description: {
-        fontWeight: 'bold',
-        fontSize: 25,
-        marginBottom: 15
-    },
-    city: {
-        fontWeight: 'normal',
-        fontSize: 14,
-        color: '#aaa'
-    },
-    hostContainer: {
-        flexDirection: 'row',
-        borderTopWidth: 1,
-        borderBottomWidth: 1,
-        borderColor: '#dfdfdf',
-        paddingTop: 15,
-        paddingBottom: 15,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 20
-    },
-    hostPicture: {
-        width: 64,
-        height: 64,
-        borderRadius: 32
-    },
-    spaceType: {
-        fontWeight: 'bold',
-        marginBottom: 3
-    },
-    hostDetail: {
-        maxWidth: 250
-    },
-    hostName: {
-        color: '#00bf5f'
-    },
-    ratingAndPrice: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    price: {
-        fontWeight: 'bold',
-        fontSize: 25
-    }
-});
