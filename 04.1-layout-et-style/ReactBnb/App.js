@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import { Provider } from 'react-redux'; // connexion store <-> composants
+import configureStore from './src/store';
+
 import Navigator from './src/containers/Navigator';
-// import HousingList from './src/containers/HousingList';
-// import HousingDetail from './src/containers/HousingDetail';
+
+const store = configureStore(); // On crée le store
 
 export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Navigator />
+        <Provider store={store}>
+          <Navigator />
+        </Provider>
       </View>
     );
   }
