@@ -1,4 +1,4 @@
-# 3.2 - Redux
+# TP 03.2 - Architecture d'application : Redux
 
 ## Objectifs
 

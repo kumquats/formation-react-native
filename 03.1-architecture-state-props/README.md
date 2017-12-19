@@ -1,8 +1,8 @@
-# 3 - Écran de liste et de détail
+# TP 03.1 - Architecture d'application : state & props
 
 ## Objectifs
 
-Mettre en place la page liste et la page de détail de l'application
+Mettre en place la page liste et la page de détail de l'application au moyen de sous-composants, des state et des props.
 
 ## Préparatifs
 1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni. **NB :** Si vous repartez de vos fichiers, créez dans votre projet un dossier `src` et un sous-dossier `src/data` puis placez-y le fichier **housings.json** fourni.

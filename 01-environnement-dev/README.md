@@ -1,4 +1,4 @@
-# 1 - Installation d'un environnement de développement
+# TP 01 - Installation d'un environnement de développement
 
 ## Objectifs
 Mettre en place les outils nécessaires au développement d'application React Native.
