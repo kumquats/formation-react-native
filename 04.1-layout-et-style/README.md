@@ -5,7 +5,7 @@
 Améliorer l'apparence et le layout de l'application grâce aux styles.
 
 ## Préparatifs
-1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
+1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.<br>**NB :** Si vous repartez de vos fichiers, récupérer le dossier `src/images`fourni ici
 
 ## Instructions
 1. Ajouter des images dans les composants `HousingListItem` et `HousingDetail`
