@@ -17,8 +17,8 @@ class HousingList extends React.Component {
         return (
             <FlatList
                 data={this.props.housings}
-                renderItem={({ item }) => (
-                    <TouchableOpacity style={styles.button} onPress={() => this.props.changeScreen( 'detail', { housingId: item.listing.id })}>
+                renderItem={({ item, index }) => (
+                    <TouchableOpacity style={[styles.button, index == 0 && styles.firstHousing]} onPress={() => this.props.changeScreen( 'detail', { housingId: item.listing.id })}>
                         <HousingListItem housing={item} />
                     </TouchableOpacity>
                 )}
@@ -38,4 +38,10 @@ function mapDispatchTopProps( dispatch ) {
     return bindActionCreators( { changeScreen, fetchHousings }, dispatch );
 }
 
-export default connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
+HousingList = connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
+
+HousingList.getHeaderTitle = function() {
+	return 'Détail d\'un logement';
+}
+
+export default HousingList;
