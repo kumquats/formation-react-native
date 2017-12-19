@@ -41,7 +41,7 @@ function mapDispatchTopProps( dispatch ) {
 HousingList = connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
 
 HousingList.getHeaderTitle = function() {
-	return 'Détail d\'un logement';
+	return 'Liste des logements';
 }
 
 export default HousingList;
