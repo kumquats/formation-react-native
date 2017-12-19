@@ -1,0 +1,9 @@
+*
+!.gitignore
+!*/
+!*.md
+!*.js
+!housings.json
+!package.json
+!star*.png
+__tests__
