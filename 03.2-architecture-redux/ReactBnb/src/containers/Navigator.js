@@ -22,7 +22,8 @@ export default class Navigator extends React.Component {
             case 'detail':
                 return <HousingDetail onScreenChange={ this.handleScreenChange } params={ this.state.screenParams } />
             break;
-        }
+		}
+		return null;
     }
 
     handleScreenChange( screen, params = {} ) {
