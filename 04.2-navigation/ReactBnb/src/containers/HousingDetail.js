@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { View, TouchableOpacity, Text, Image, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchHousingDetail } from '../actions/housings';
 import { changeScreen } from '../actions/navigation';
-import { housingDetail as styles } from '../styles';
 import StarRating from '../components/StarRating';
 
 class HousingDetail extends React.Component {
@@ -18,6 +17,9 @@ class HousingDetail extends React.Component {
 			return (
 				<View style={styles.housingDetail}>
 					<Image style={styles.picture} source={{ uri: listing.picture.picture }} />
+					<TouchableOpacity style={styles.backButton} onPress={() => this.props.changeScreen( 'list' )}>
+						<Text style={styles.backButtonText}>&lt; Retour</Text>
+					</TouchableOpacity>
 					<View style={styles.container}>
 						<Text style={styles.description}>{ listing.name } <Text style={styles.city}>({ listing.city })</Text></Text>
 						<View style={styles.hostContainer}>
@@ -49,10 +51,75 @@ function mapDispatchTopProps( dispatch ) {
     return bindActionCreators( { changeScreen, fetchHousingDetail }, dispatch );
 }
 
-HousingDetail = connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
+export default connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
 
-HousingDetail.getHeaderTitle = function() {
-	return 'Détail d\'un logement';
-}
 
-export default HousingDetail;
+const styles = StyleSheet.create({
+    housingDetail: {
+        flex: 1
+    },
+    picture: {
+        height: 240,
+        marginBottom: 10
+    },
+    container: {
+        marginLeft: 15,
+        marginRight: 15
+    },
+    backButton: {
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        top: Platform.select({ ios: 30, android: 10 }),
+		left: 20,
+    },
+    backButtonText: {
+        color: 'white',
+		fontWeight: 'bold',
+		fontSize: 14,
+    },
+    description: {
+        fontWeight: 'bold',
+        fontSize: 25,
+        marginBottom: 15
+    },
+    city: {
+        fontWeight: 'normal',
+        fontSize: 14,
+        color: '#aaa'
+    },
+    hostContainer: {
+        flexDirection: 'row',
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
+        borderColor: '#dfdfdf',
+        paddingTop: 15,
+        paddingBottom: 15,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 20
+    },
+    hostPicture: {
+        width: 64,
+        height: 64,
+        borderRadius: 32
+    },
+    spaceType: {
+        fontWeight: 'bold',
+        marginBottom: 3
+    },
+    hostDetail: {
+        maxWidth: 250
+    },
+    hostName: {
+        color: '#00bf5f'
+    },
+    ratingAndPrice: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    price: {
+        fontWeight: 'bold',
+        fontSize: 25
+    }
+});

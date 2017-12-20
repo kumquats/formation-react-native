@@ -1,28 +1,35 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
-import { starRating as styles } from '../styles';
+import { View, Image, Text, StyleSheet } from 'react-native';
+
+function renderStars(props){
+	const stars = [],
+		starStyle = {
+			width: props.size,
+			height: props.size
+		};
+	for ( let i = 1; i <= 5; i++ ) {
+		if ( props.rating >= i )
+		{
+			stars.push( <Image key={i} style={starStyle} source={require('../images/star-active.png')} /> );
+		}
+		else
+		{
+			stars.push( <Image key={i} style={starStyle} source={require('../images/star.png')} /> );
+		}
+	}
+	return stars;
+}
 
 export default function( props ) {
-	const starStyle = {
-		width: props.size,
-		height: props.size
-	};
 	return (
 		<View style={styles.rating}>
-			{(() => {
-				const stars = [];
-				for ( let i = 1; i <= 5; i++ ) {
-					if ( props.rating >= i )
-					{
-						stars.push( <Image key={i} style={starStyle} source={require('../images/star-active.png')} /> );
-					}
-					else
-					{
-						stars.push( <Image key={i} style={starStyle} source={require('../images/star.png')} /> );
-					}
-				}
-				return stars;
-			})()}	
+			{ renderStars(props) }
 		</View>
 	);
 }
+
+const styles = StyleSheet.create({
+    rating: {
+        flexDirection: 'row'
+    }
+});
