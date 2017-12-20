@@ -14,9 +14,9 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
-    "babel-jest": "22.0.0",
+    "babel-jest": "22.0.3",
     "babel-preset-react-native": "4.0.0",
-    "jest": "22.0.0",
+    "jest": "22.0.3",
     "react-test-renderer": "16.0.0"
   },
   "jest": {
