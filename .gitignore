@@ -6,4 +6,6 @@
 !housings.json
 !package.json
 !star*.png
+!*.png
+ic_launcher.png
 __tests__
