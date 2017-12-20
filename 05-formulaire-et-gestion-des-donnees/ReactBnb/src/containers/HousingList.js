@@ -11,7 +11,7 @@ class HousingList extends React.Component {
     static navigationOptions = {
         title: 'Liste des logements'
 	};
-	
+
 	componentWillMount() {
         this.props.fetchHousings();
 	}
@@ -27,7 +27,7 @@ class HousingList extends React.Component {
 						style={ styles.button }
 						onPress={() => this.props.navigation.navigate('detail', {id: item.listing.id})}>
 							<HousingListItem housing={ item } />
-						</TouchableOpacity>						
+						</TouchableOpacity>
 					)}
 					keyExtractor={item => item.listing.id}
 				/>
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
 	container: {
 		paddingTop: searchBarHeight + 15,
 		paddingHorizontal: 30,
+		backgroundColor: '#fff'
 	},
     button: {
         alignItems: 'center',
