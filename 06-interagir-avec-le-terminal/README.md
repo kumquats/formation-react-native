@@ -1,7 +1,7 @@
 ### TP 6 : Interagir avec le terminal
 
 ## Objectifs
-Mettre en place une navigation avec react-navigation et utiliser les composants de liste avancés.
+Créer un formulaire de création de logement et utiliser le GPS pour géolocaliser l'utilisateur
 
 ## Préparatifs
 1. Ajouter la permission suivante dans le fichier `AndroidManifest.xml`

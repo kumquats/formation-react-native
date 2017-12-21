@@ -1,7 +1,7 @@
 ### TP 05 : Formulaires et la gestion des données
 
 ## Objectifs
-Mettre en place une navigation avec react-navigation et utiliser les composants de liste avancés.
+Créer un formulaire de recherche et charger les données depuis un webservice.
 
 ## Préparatifs
 1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
