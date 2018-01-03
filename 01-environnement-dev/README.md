@@ -23,8 +23,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
         C:\Program Files\Java\jdk1.8.0_121\bin;
     ```
 1. Installer Android Studio
-    + bien préciser le dossier dans lequel enregistrer les SDK (par ex. `C:\react-native-dev\android\sdk`)
-    + paramétrer la RAM utilisée par l'émulateur
+    + augmenter la RAM allouée à l'émulateur si possible
 1. Installer les SDK **Android 6.0 (API 23)** et installer les outils additionnels via le SDK Manager en cochant les éléments suivants :
     ```bash
     Tools /
@@ -42,8 +41,9 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 1. Ajouter les dossiers du sdk suivants aux variables d’environnement :
     ```bash
     PATH +=
-        C:\react-native-dev\android\tools
-        C:\react-native-dev\android\platform-tools
+        C:\<chemin-vers-votre-dossier-sdk>\tools
+        C:\<chemin-vers-votre-dossier-sdk>\platform-tools
+	ANDROID_HOME = C:\<chemin-vers-votre-dossier-sdk>
     ```
 1. Afin de vérifier que le SDK a bien été installé, brancher le smartphone en USB et lancer la commande suivante `adb devices`. Le résultat devrait ressembler à ceci :
     ```
