@@ -8,18 +8,18 @@ Valider les props des composants et créer un fichier d'application de productio
 
 
 ## Instructions
-1. Dans le composant StarRating (`src/containers/StarRating.js`), ajouter une validation de manière à contraindre le type des props suivantes:
+1. Dans le composant StarRating (`src/components/StarRating.js`), ajouter une validation de manière à contraindre le type des props suivantes:
     + rating: Nombre - Optionnelle
     + size: Nombre - Optionnelle
 1. Dans ce même composant, définir les valeurs par défaut suivantes:
     + rating: `0`
     + size: `10`
-1. Dans le composant SearchBar (`src/containers/SearchBar.js`), ajouter une validation de manière à contraindre le type des props suivantes:
+1. Dans le composant SearchBar (`src/components/SearchBar.js`), ajouter une validation de manière à contraindre le type des props suivantes:
     + navigation: Objet - Obligatoire
     + city: Chaine de caractère - Optionnelle
 1. Dans ce même composant, définir les valeurs par défaut suivantes:
     + city: `"Partout"`
-1. Dans le composant HousingListItem (`src/containers/HousingListItem.js`), ajouter une validation de manière à contraindre le type des props suivantes:
+1. Dans le composant HousingListItem (`src/components/HousingListItem.js`), ajouter une validation de manière à contraindre le type des props suivantes:
     + housing: Objet de la forme
         ```
         {
@@ -40,7 +40,7 @@ Valider les props des composants et créer un fichier d'application de productio
         ```
 ## Pour aller plus loin
 
-1. Ajouter le chemin `C:\Program Files\Java\jdkx.x.x_x\bin` dans le PATH
+1. Vérifier que le chemin `C:\Program Files\Java\jdkx.x.x_x\bin` figure bien dans la variable d'environnement PATH
 1. Générer une clé privée en saisissant la commande suivante:
     ```bash
     keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
