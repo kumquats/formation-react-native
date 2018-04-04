@@ -1,9 +1,7 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {
-    StackNavigator,
-    addNavigationHelpers
-} from 'react-navigation';
+import { connect } from 'react-redux';
+import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { createReduxBoundAddListener } from 'react-navigation-redux-helpers';
 import SearchForm from './SearchForm';
 import HousingList from './HousingList';
 import HousingDetail from './HousingDetail';
@@ -32,7 +30,9 @@ class Main extends React.Component {
         // On passe la fonction dispatch et le state de la
         // navigation au navigator
         dispatch: this.props.dispatch,
-        state: this.props.nav,
+		state: this.props.nav,
+		addListener: createReduxBoundAddListener('root')
+			// 'root'= identifiant passé en middleware du store. cf. store.js
       })} />
     );
   }

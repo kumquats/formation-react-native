@@ -5,9 +5,9 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
 
 ## Préparatifs
 1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
-1. Installer React Navigation
+1. Installer React Navigation et les Helpers pour la connexion avec Redux
     ```bash
-        npm install --save react-navigation
+        npm install --save react-navigation react-navigation-redux-helpers
     ```
 
 ## Instructions
@@ -21,20 +21,21 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
 1. Créer un composant `Main` (`src/containers/Main.js`)
 1. Dans ce composant:
     1. Importer les composants `SearchForm`, `HousingList` et `HousingDetail`
-    1. Créer et exporter une instance de StackNavigator que l'on appellera `MainNavigator` avec les 3 pages suivantes:
+    1. Créer (et exporter) une instance de StackNavigator que l'on appellera `MainNavigator` avec les 3 pages suivantes:
         - list (`HousingList`) - Page par défaut
         - detail/:id (`HousingDetail`)
         - search (`HousingSearch`)
-    1. Créer la classe du composant et lui faire afficher le `MainNavigator` de la manière suivante:
+    1. Créer la classe du composant et dans son `render()`, lui faire afficher le `MainNavigator` de la manière suivante :
         ```jsx
         <MainNavigator navigation={addNavigationHelpers({
             // On passe la fonction dispatch et le state de la
             // navigation au navigator
             dispatch: this.props.dispatch,
-            state: this.props.nav,
+			state: this.props.nav,
+			addListener: createReduxBoundAddListener('root')
         })} />
         ```
-    1. Connecter le composant au store Redux en prenant soin de récupérer le state `nav`
+    1. Connecter le composant au store Redux en prenant soin de récupérer le state `nav` (utilisé ci-dessus dans le `addNavigationHelpers()`)
         ```js
         const mapStateToProps = (state) => ({
             nav: state.nav
@@ -43,30 +44,45 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
         export default connect(mapStateToProps)(Main);
         ```
 1. Créer un reducer **nav** `src/reducers/nav.js`
-1. Le connecter au MainNavigator
-    ```jsx
-    // On récupère le MainNavigator
-    import { MainNavigator } from '../containers/Main';
+	1. Le connecter au MainNavigator
+		```jsx
+		// On récupère le MainNavigator
+		import { MainNavigator } from '../containers/Main';
 
-    // On récupère le state initial
-    const initialState = MainNavigator.router.getStateForAction(
-        // Par défaut on affiche la page liste
-        MainNavigator.router.getActionForPathAndParams('list')
-    );
+		// On récupère le state initial
+		const initialState = MainNavigator.router.getStateForAction(
+			// Par défaut on affiche la page liste
+			MainNavigator.router.getActionForPathAndParams('list')
+		);
 
-    export default (state = initialState, action) => {
-        // On récupère le nextState
-        const nextState = MainNavigator
-            .router
-            .getStateForAction(action, state)
-        ;
+		export default (state = initialState, action) => {
+			// On récupère le nextState
+			const nextState = MainNavigator
+				.router
+				.getStateForAction(action, state)
+			;
 
-        // Si le nextState existe on le retourne,
-        // sinon on retourne le state
-        return nextState || state;
-    };
-    ```
-1. Ajouter ce reducer dans le `combineReducers` du fichier `src/reducers/index.js`
+			// Si le nextState existe on le retourne,
+			// sinon on retourne le state
+			return nextState || state;
+		};
+		```
+	1. Ajouter ce reducer dans le `combineReducers` du fichier `src/reducers/index.js`
+1. Modifier également le store pour lui passer le middleware de react-navigation-redux-helpers :
+	```jsx
+	const navMiddleware = createReactNavigationReduxMiddleware(
+		'root',
+		state => state.nav,
+	);
+	```
+	Et passer ce navMiddleware à `createStore()` via la fonction `applyMiddleware()` :
+	```jsx
+	return createStore(
+		reducer,
+		composeEnhancers(
+        	applyMiddleware(navMiddleware)
+		)
+	```
 1. Dans le fichier `App.js`, importer le composant `Main` et l'afficher à la place du composant `HousingList`
 
 ## Pour aller plus loin :
