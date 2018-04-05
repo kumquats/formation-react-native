@@ -11,7 +11,8 @@ import { fetchHousings } from '../actions/housings';
 class HousingList extends React.Component {
     static navigationOptions = ({ navigation }) => ({
 		title: 'Liste des logements',
-		headerRight: <Button title="Créer" onPress={() => navigation.navigate( 'create' )}/>
+		headerRight: <Button title="Créer" style={styles.addButton} onPress={() => navigation.navigate( 'create' )}/>,
+		headerStyle: { paddingRight:16 },
 	});
 
 	componentWillMount() {
@@ -65,10 +66,14 @@ const styles = StyleSheet.create({
 	},
 	searchBar: {
 		position: 'absolute',
-        height: searchBarHeight,
+		height: searchBarHeight,
         top: 0,
         left: 0,
 		right: 0,
 		zIndex: 1,
+	},
+	addButton: {
+		position:'absolute',
+		left: 50
 	}
 });
