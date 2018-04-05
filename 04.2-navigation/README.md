@@ -1,4 +1,4 @@
-### TP 04.2 : Construire son interface : Navigation
+# TP 04.2 : Construire son interface : Navigation
 
 ## Objectifs
 Mettre en place une navigation avec react-navigation et utiliser les composants de liste avancés.
