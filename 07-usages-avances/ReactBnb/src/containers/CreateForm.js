@@ -24,7 +24,7 @@ class CreateForm extends React.Component {
     static navigationOptions = {
         title: 'Création'
     };
-    
+
     render() {
         return (
             <View style={styles.container}>
@@ -52,14 +52,15 @@ class CreateForm extends React.Component {
     }
 
     geolocate() {
-        this.props.dispatch( change( 'create', 'place', 'Recherche...' ) );
+        this.props.dispatch( change( 'create', 'place', 'Recherche position GPS...' ) );
         navigator.geolocation.getCurrentPosition( ( event ) => {
+			this.props.dispatch( change( 'create', 'place', `Recherche ville à ${event.coords.latitude},${event.coords.longitude}` ) );
             fetch( `https://geocode.xyz/${event.coords.latitude},${event.coords.longitude}?json=1` )
                 .then(response => response.json())
                 .then( responseJson => {
                     this.props.dispatch( change( 'create', 'place', responseJson.city ) );
                 } )
-        } );
+        }, null, {timeout: 10000} );
     }
 }
 
