@@ -4,11 +4,12 @@ import { reduxForm, Field } from 'redux-form';
 import { fetchHousings } from '../actions/housings';
 
 const CityInput = props => {
-    const { input, ...inputProps } = props;
+	const { input, ...inputProps } = props;
     return <TextInput
                 placeholder="Ville"
                 style={styles.input}
-                onChangeText={input.onChange}
+				onChangeText={input.onChange}
+				value={input.value}
                 {...inputProps} />;
 }
 
@@ -44,7 +45,7 @@ class SearchForm extends React.Component {
     static navigationOptions = {
         title: 'Recherche'
     };
-    
+
     render() {
         return (
             <View style={styles.container}>
