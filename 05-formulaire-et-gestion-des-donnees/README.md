@@ -1,10 +1,10 @@
-### TP 05 : Formulaires et la gestion des données
+# TP 05 : Formulaires et la gestion des données
 
 ## Objectifs
-Créer un formulaire de recherche et charger les données depuis un webservice.
+Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche qui permettra à l'utilisateur de rechercher des logements dans une ville et à des dates précises.
 
 ## Préparatifs
-1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
+1. Repartir des fichiers du TP précédent ou du dossier `ReactBnb` fourni.
 1. Installer Redux Thunk
     ```bash
         npm install --save redux-thunk
@@ -15,6 +15,7 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
     ```
 
 ## Instructions
+### Connecter l'application au webservice de AirBnb :
 1. Modifier le fichier `src/store.js`de la manière suivante afin d'intégrer Redux Thunk:
     ```js
     import thunk from 'redux-thunk';
@@ -31,7 +32,7 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
 
     export const fetchHousings = function() {
         return function( dispatch, getState ) {
-            // On appelle le webservice 
+            // On appelle le webservice
             return fetch('https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true' )
                 .then(response => response.json())
                 .then(responseJson => {
@@ -52,10 +53,12 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
                 type: HOUSING_DETAIL_COMPLETE,
                 // On récupère les données du logement dans le state
                 housing: getState().housingList.find( housing => housing.listing.id == id )
-            });   
+            });
         };
     }
     ```
+
+### Intégrer un formulaire de recherche permettant de filtrer la HousingList
 1. Modifier le composant SearchForm (`src/containers/SearchForm`) afin d'afficher un formulaire contenant:
     - Un champ "city" qui sera la ville recherchée
     - Un champ "minDate" qui sera la date d'arrivée
@@ -87,7 +90,7 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
     ```js
     export default reduxForm( { form: 'search' })( SearchForm );
     ```
-1. Créer un fonction `submit` qui sera appelée à la soumission du formulaire et qui permettra de déclencher un appel au webservice d'AirBnB et de revenir sur la page liste
+1. Créer une fonction `submit` qui sera appelée à la soumission du formulaire et qui permettra de déclencher l'action creator `fetchHousings` (et donc un appel au webservice d'AirBnB) et de revenir sur la page liste
     ```jsx
     function submit( navigation ) {
         return function( values, dispatch ) {
@@ -99,7 +102,7 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
         }
     }
     ```
-1. Ecouter le 'tap' sur le bouton de soumission de manière à ce que Redux Form appelle la fonction `submit`
+1. Écouter le 'tap' sur le bouton de soumission de manière à ce que Redux Form appelle la fonction `submit`
     ```jsx
     <Button title="Rechercher" onPress={ this.props.handleSubmit( submit( this.props.navigation ) ) }/>
     ```
@@ -131,4 +134,4 @@ Créer un formulaire de recherche et charger les données depuis un webservice.
     ```
 
 ## Pour aller plus loin :
-1. Afficher la ville recherchée dans la SearchBar
+1. Afficher la ville recherchée dans la `SearchBar` présente en haut de la `HousingList`
