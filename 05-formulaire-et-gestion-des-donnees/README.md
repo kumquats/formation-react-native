@@ -33,7 +33,7 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
     export const fetchHousings = function() {
         return function( dispatch, getState ) {
             // On appelle le webservice
-            return fetch('https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true' )
+            return fetch('https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true&_format=for_explore_search_web' )
                 .then(response => response.json())
                 .then(responseJson => {
                     // Lorsque le webservice répond, on dispatche l'action en fournissant les logements récupérés
