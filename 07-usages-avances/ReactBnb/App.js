@@ -8,7 +8,7 @@ import Main from './src/containers/Main';
 
 const store = configureStore(); // On crée le store
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>

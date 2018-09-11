@@ -5,7 +5,7 @@ import Navigator from './src/containers/Navigator';
 // import HousingList from './src/containers/HousingList';
 // import HousingDetail from './src/containers/HousingDetail';
 
-export default class App extends Component<{}> {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
