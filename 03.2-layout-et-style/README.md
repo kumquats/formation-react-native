@@ -35,3 +35,7 @@ Améliorer l'apparence et le layout de l'application grâce aux styles.
 	L'écran de détail devra afficher deux informations supplémentaires:
 	- Le prénom de l'hôte: `listing.user.first_name`
 	- La photo de l'hôte: `listing.user.picture_url`
+
+## Pour aller plus loin
+
+1. Utiliser une FlatList pour afficher la liste des logements dans la HousingList
