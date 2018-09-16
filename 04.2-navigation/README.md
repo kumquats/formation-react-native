@@ -88,4 +88,3 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
 ## Pour aller plus loin :
 1. Utiliser react-navigation pour gérer le 'tap' sur un élément de la HousingList et la redirection vers la page HousingDetail.
 1. Utiliser react-navigation pour gérer le 'tap' sur le input de la SearchBar et la redirection vers la page SearchForm.
-1. Utiliser une FlatList pour afficher la liste des logements dans la HousingList
