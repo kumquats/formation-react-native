@@ -34,14 +34,14 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 4. Installer Android Studio
     + augmenter la RAM allouée à l'émulateur si possible
 5. Lancer Android Studio et ouvrir le SDK Manager
-<img src="images/sdk-manager-button.jpg" style="width: 80%">
+	<img src="images/sdk-manager-button.jpg" width="700">
 6. Dans le SDK Manager, installer les SDK **Android 8.1 (API 27)** en cochant les éléments suivants (cocher la case "Show Package details" en bas à droite pour afficher toutes les options) :
 	```
 	SDK Platforms /
 		Android 8.1 (Oreo) /
 			+ Android SDK Platform 27
 	```
-	<img src="images/sdk-manager-1.jpg" style="width: 80%"><br>
+	<img src="images/sdk-manager-1.jpg" style="max-width: 80%"><br>
 	Puis dans l'onglet **"SDK Tools"** cocher :
 	```
 	SDK Tools /
@@ -53,11 +53,11 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 		Support Repository /
 			+ Android Support Repository
 	```
-	<img src="images/sdk-manager-2.jpg" style="width: 80%">
-	<img src="images/sdk-manager-3.jpg" style="width: 80%">
+	<img src="images/sdk-manager-2.jpg" style="max-width: 80%">
+	<img src="images/sdk-manager-3.jpg" style="max-width: 80%">
 
 7. Noter le dossier dans lequel sont installés les SDK en examinant le champ "Android SDK Location:" du SDK Manager
-<img src="images/sdk-manager-sdk-location.jpg" style="width: 80%">
+<img src="images/sdk-manager-sdk-location.jpg" style="max-width: 80%">
 
 8.  Ajouter les sous-dossiers `tools` et `platform-tools` du sdk dans la variable d’environnement `PATH` puis créer une variable `ANDROID_HOME` contenant le chemin vers la racine du dossier sdk :
     ```bash
