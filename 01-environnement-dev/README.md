@@ -41,7 +41,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 		Android 8.1 (Oreo) /
 			+ Android SDK Platform 27
 	```
-	<img src="images/sdk-manager-1.jpg" style="max-width: 80%"><br>
+	<img src="images/sdk-manager-1.jpg" width="700"><br>
 	Puis dans l'onglet **"SDK Tools"** cocher :
 	```
 	SDK Tools /
@@ -53,11 +53,11 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 		Support Repository /
 			+ Android Support Repository
 	```
-	<img src="images/sdk-manager-2.jpg" style="max-width: 80%">
-	<img src="images/sdk-manager-3.jpg" style="max-width: 80%">
+	<img src="images/sdk-manager-2.jpg" width="700">
+	<img src="images/sdk-manager-3.jpg" width="700">
 
 7. Noter le dossier dans lequel sont installés les SDK en examinant le champ "Android SDK Location:" du SDK Manager
-<img src="images/sdk-manager-sdk-location.jpg" style="max-width: 80%">
+<img src="images/sdk-manager-sdk-location.jpg" width="700">
 
 8.  Ajouter les sous-dossiers `tools` et `platform-tools` du sdk dans la variable d’environnement `PATH` puis créer une variable `ANDROID_HOME` contenant le chemin vers la racine du dossier sdk :
     ```bash
