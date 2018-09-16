@@ -57,7 +57,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 	<img src="images/sdk-manager-3.jpg" width="700">
 
 7. Noter le dossier dans lequel sont installés les SDK en examinant le champ "Android SDK Location:" du SDK Manager
-<img src="images/sdk-manager-sdk-location.jpg" width="700">
+	<img src="images/sdk-manager-sdk-location.jpg" width="700">
 
 8.  Ajouter les sous-dossiers `tools` et `platform-tools` du sdk dans la variable d’environnement `PATH` puis créer une variable `ANDROID_HOME` contenant le chemin vers la racine du dossier sdk :
     ```bash
