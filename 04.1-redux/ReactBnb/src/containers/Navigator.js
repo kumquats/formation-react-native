@@ -1,29 +1,32 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import HousingList from './HousingList';
 import HousingDetail from './HousingDetail';
 
-class Navigator extends React.Component {
+export default class Navigator extends React.Component {
+	state = {
+		currentScreen: 'list',
+		screenParams: {}
+	};
+
+    constructor() {
+        super();
+        this.handleScreenChange = this.handleScreenChange.bind( this );
+    }
 
     render() {
-        switch ( this.props.navigation.screen ) {
+        switch ( this.state.currentScreen ) {
             case 'list':
-                return <HousingList params={ this.props.navigation.params } />
+                return <HousingList onScreenChange={ this.handleScreenChange } params={ this.state.screenParams } />
             break;
             case 'detail':
-                return <HousingDetail params={ this.props.navigation.params } />
+                return <HousingDetail onScreenChange={ this.handleScreenChange } params={ this.state.screenParams } />
             break;
 		}
 		return null;
     }
-}
 
-function mapStateTopProps( state ) {
-    return {
-        navigation: state.navigation
-    };
+    handleScreenChange( screen, params = {} ) {
+        this.setState({ currentScreen: screen, screenParams: params });
+    }
 }
-
-export default connect( mapStateTopProps )( Navigator );

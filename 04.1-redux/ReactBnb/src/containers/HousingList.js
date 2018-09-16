@@ -1,22 +1,24 @@
 import React from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
+import housings from '../data/housings.json';
 import HousingListItem from '../components/HousingListItem';
-import { fetchHousings } from '../actions/housings';
-import { changeScreen } from '../actions/navigation';
 
-class HousingList extends React.Component {
-	componentWillMount() {
-        this.props.fetchHousings();
+export default class HousingList extends React.Component {
+	state = {
+		housings
 	}
 
     render() {
         return (
             <View>
-                { this.props.housings.map( housing => (
-                    <TouchableOpacity onPress={() => this.props.changeScreen( 'detail', { housingId: housing.listing.id })} key={housing.listing.id}>
+                { this.state.housings.map( housing => (
+					<TouchableOpacity
+						onPress={() => this.props.onScreenChange(
+							'detail',
+							{ housing }
+						)}
+						key={housing.listing.id}>
                         <HousingListItem housing={ housing } />
                     </TouchableOpacity>
                 ))}
@@ -24,15 +26,3 @@ class HousingList extends React.Component {
         );
     }
 }
-
-function mapStateTopProps( state ) {
-    return {
-        housings: state.housingList
-    };
-}
-
-function mapDispatchTopProps( dispatch ) {
-    return bindActionCreators( { changeScreen, fetchHousings }, dispatch );
-}
-
-export default connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
