@@ -11,55 +11,79 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 1. Installer l'application **Expo** sur votre terminal (liens [play store android](https://play.google.com/store/apps/details?id=host.exp.exponent), et [apple store ios](https://itunes.apple.com/app/apple-store/id982107779?pt=17102800&amp;ct=www&amp;mt=8))
 
 ## Instructions
+**Dans ce TP nous allons installer plusieurs éléments indispensables au développement avec React Native :**
+- **un éditeur de code**
+- **les SDK android pour permettre de compiler nos applis**
+- **Git et Node qui vont permettre d'installer des paquets npm dont react-native lui même !**
+- **Python 2**
+
+### 1. L'IDE
 1. Installer Visual Studio Code (https://code.visualstudio.com/)
-1. Installer les extensions suivantes:
+2. Installer les extensions suivantes:
     - React Native Tools (https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native)
     - Path Intellisense (https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
-1. Installer Java JDK (avec JRE) et modifier les variables d’environnement JAVA_HOME et PATH:
+
+### 2. Les SDK Android
+3. Installer Java JDK (avec JRE) et modifier les variables d’environnement JAVA_HOME et PATH:
     ```bash
     JAVA_HOME = C:\Program Files\Java\jdk1.8.0_121
     PATH +=
         C:\Program Files\Java\jdk1.8.0_121;
         C:\Program Files\Java\jdk1.8.0_121\bin;
     ```
-1. Installer Android Studio
+4. Installer Android Studio
     + augmenter la RAM allouée à l'émulateur si possible
-1. Installer les SDK **Android 6.0 (API 23)** et installer les outils additionnels via le SDK Manager en cochant les éléments suivants :
-    ```bash
-    Tools /
-        + Android SDK Tools
-        + Android SDK Platform-tools
-        + Android SDK Build-tools (23.0.1)
-    Android 6.0 (API 23) /
-        + SDK Platform
-        + Intel x86 Atom system Image (émulateur)
-    Extra /
-        + Google USB Driver
-        + Android Support Repository
-        + Intel x86 Emulator Accelerator (HAXM installer)
-    ```
-1. Ajouter les dossiers du sdk suivants aux variables d’environnement :
+5. Lancer Android Studio et ouvrir le SDK Manager
+<img src="images/sdk-manager-button.jpg" style="width: 80%">
+6. Dans le SDK Manager, installer les SDK **Android 8.1 (API 27)** en cochant les éléments suivants (cocher la case "Show Package details" en bas à droite pour afficher toutes les options) :
+	```
+	SDK Platforms /
+		Android 8.1 (Oreo) /
+			+ Android SDK Platform 27
+	```
+	<img src="images/sdk-manager-1.jpg" style="width: 80%"><br>
+	Puis dans l'onglet **"SDK Tools"** cocher :
+	```
+	SDK Tools /
+		Android SDK Build-tools /
+			+ 27.0.3
+		+ Android SDK Platform-tools
+		+ Android SDK Tools
+		+ Google USB Driver
+		Support Repository /
+			+ Android Support Repository
+	```
+	<img src="images/sdk-manager-2.jpg" style="width: 80%">
+	<img src="images/sdk-manager-3.jpg" style="width: 80%">
+
+7. Noter le dossier dans lequel sont installés les SDK en examinant le champ "Android SDK Location:" du SDK Manager
+<img src="images/sdk-manager-sdk-location.jpg" style="width: 80%">
+
+8.  Ajouter les sous-dossiers `tools` et `platform-tools` du sdk dans la variable d’environnement `PATH` puis créer une variable `ANDROID_HOME` contenant le chemin vers la racine du dossier sdk :
     ```bash
     PATH +=
         C:\<chemin-vers-votre-dossier-sdk>\tools
         C:\<chemin-vers-votre-dossier-sdk>\platform-tools
 	ANDROID_HOME = C:\<chemin-vers-votre-dossier-sdk>
     ```
-1. Afin de vérifier que le SDK a bien été installé, brancher le smartphone en USB et lancer la commande suivante `adb devices`. Le résultat devrait ressembler à ceci :
+9. Afin de vérifier que le SDK a bien été installé, brancher le smartphone en USB et lancer la commande suivante `adb devices`. Le résultat devrait ressembler à ceci :
     ```
     List of devices attached
     015d21098658181a        device
     ```
-1. Installer NodeJS http://nodejs.org/ (version 9.x.x)
+	*En cas d'échec, vérifier que tous les préparatifs (cf. début du TP) ont bien été réalisés, débrancher/rebrancher le câble USB, et installer si besoin les drivers de votre téléphone (disponibles en principe sur le site du fabricant)*
+
+### 3. Node, Git & Python
+1. Installer NodeJS http://nodejs.org/ (version <u>10.x.x</u>)
 1. Installer Git http://git-scm.com/ et sélectionner les choix suivants pendant le processus d'installation :
     + "Use Git from the Windows Command Prompt"
     + "Checkout as-is, commit as-is"
-1. S'il est nécessaire d'utiliser un proxy pour accèder à internet, entrer les commandes suivantes:
+2. Si votre connexion internet se trouve derrière un proxy, entrer les commandes suivantes :
     ```bash
-    npm config set proxy "http://domain\username:password@servername:port/"
-    npm config set https-proxy "http://domain\username:password@servername:port/"
+    npm config set proxy "http://username:password@servername:port/"
+    npm config set https-proxy "http://username:password@servername:port/"
     ```
-1. Installer les Windows build tools en ouvrant le CMD en tant qu'admin et en tapant la commande suivante:
+3. Installer Python (et les Visual C++ Build Tools) via le paquet npm windows-build-tools en ouvrant le CMD <u>en tant qu'administrateur</u> et en tapant la commande suivante :
     ```bash
     npm install --global --production windows-build-tools
     ```
