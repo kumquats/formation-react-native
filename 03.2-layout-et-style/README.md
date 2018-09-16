@@ -49,7 +49,7 @@ Architecturer son application avec Redux
 	+ Dans l'appel à la méthode `render()` utiliser le composant `<Provider>` pour entourer le composant `Navigator`. Cela permettra de rendre le `state` accessible dans la `HousingList`. (ne pas oublier de passer le `store` au `Provider` !)
 1. A ce stade, la compilation doit fonctionner et l'app s'exécuter sans erreur ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `HousingList`.
 1. Créer un action creator `fetchHousings()` dans le fichier `actions/housings.js`. Cet action creator devra retourner une action (objet) avec 2 propriétés :
-	+ une propriété `type`HOUSINGS_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
+	+ une propriété `type`HOUSING_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
 	+ une propriété `housings` qui aura comme valeur le tableau importé via `housings.json`
 	```js
 	{
@@ -58,10 +58,10 @@ Architecturer son application avec Redux
 		housings: housings
 	}
 	```
-1. Dans `HousingList` lancer l'action creator `fetchHousings` au `componentWillMount()`, utiliser pour cela la fonction `mapDispatchToProps()`
+1. Dans `HousingList` lancer l'action creator `fetchHousings` au `componentDidMount()`, utiliser pour cela la fonction `mapDispatchToProps()`
 1. Dans le reducer (`reducers/index.js`) prendre en charge l'action dispatchée par l'action creator `fetchHousings()` :
-	+ importer la constante `HOUSINGS_LIST_COMPLETE` de l'action creator
-	+ tester si le type de l'action reçu correspond à `HOUSINGS_LIST_COMPLETE`
+	+ importer la constante `HOUSING_LIST_COMPLETE` de l'action creator
+	+ tester si le type de l'action reçu correspond à `HOUSING_LIST_COMPLETE`
 	+ retourner le nouveau state en y injectant la propriété `action.housings`
 1. Vous pouvez à nouveau tester l'application, cette fois la HousingList doit se remplir presque immédiatement après le lancement.
 
@@ -87,11 +87,11 @@ Architecturer son application avec Redux
 1. Modifier le composant `HousingDetail` pour prendre en compte le paramètre id et le store Redux :
 	+ Importer l'action creator `fetchHousingDetail`
 	+ Connecter le composant au store redux afin de récupérer le state `housingDetail`
-	+ Implémenter la méthode `componentWillMount()` afin d'appeler l'action `fetchHousingDetail(id)`
+	+ Implémenter la méthode `componentDidMount()` afin d'appeler l'action `fetchHousingDetail(id)`
 	+ Adapter la méthode `render()` afin de récupérer les données du logement
 
 #### Améliorations diverses
 
-1. Installer et configurer Redux logger et Redux Devtools
+1. Installer et configurer Redux Devtools
 1. Scinder le reducer en plusieurs "petits" reducers (un par state) à l'aide de la fonction `combineReducers`
 1. Créer une action et un reducer pour la navigation et les utiliser dans le composant Navigator
