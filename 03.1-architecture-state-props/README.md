@@ -1,11 +1,11 @@
-# TP 03.1 - Architecture d'application : state & props
+# TP 03.1 - Construire son interface : state & props
 
 ## Objectifs
 
-Mettre en place la page liste et la page de détail de l'application au moyen de sous-composants, des state et des props.
+Mettre en place la page liste au moyen de sous-composants, des state et des props.
 
 ## Préparatifs
-1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni. **NB :** Si vous repartez de vos fichiers, créez dans votre projet un dossier `src` et un sous-dossier `src/data` puis placez-y le fichier **housings.json** fourni.
+1. Repartir des fichiers du TP précédent ou du dossier `ReactBnb` fourni. **NB :** Si vous repartez de vos fichiers, créez dans votre projet un dossier `src` et un sous-dossier `src/data` puis placez-y le fichier **housings.json** fourni.
 
 
 ## Instructions
@@ -26,7 +26,11 @@ Mettre en place la page liste et la page de détail de l'application au moyen de
 1. Créer un composant **HousingListItem** dans un dossier `components` (`src/components/HousingListItem.js`) et l'utiliser dans la fonction `render()` de la `HousingList`. Le logement à afficher est passé au `HousingListItem` via une prop `housing`.
 
 ## Pour aller plus loin
-*Pour aller plus loin, nous allons mettre en place un mécanisme de navigation relativement basique mais qui permettra de passer de la liste des résultats à un écran de détail d'un logement.*
+*Pour aller plus loin, nous allons mettre en place un mécanisme de navigation relativement basique mais qui permettra de passer de la liste des résultats à un écran de détail d'un logement. <br>Cela se fera en 3 étapes :*
+- *Créer un composant pour la page détail : `HousingDetail`*
+- *Créer un bouton autour de chaque item de la HousingList*
+- *Créer un composant `Navigator` qui permettra de passer de l'un à l'autre*
+
 1. Sur le modèle du composant `HousingListItem`, créer un composant **HousingDetail** (`src/containers/HousingDetail.js`)
 	+ la prop utilisée ne sera plus `housing` mais une prop `params` qui contiendra une propriété `housing` (le passage par une prop `params` permettra de rendre le système de navigation plus générique)
     + En plus des informations affichées de base par `HousingListItem`, le composant `HousingDetail` doit afficher quelques informations supplémentaires comme par exemple le nombre de chambres ou la ville du logement
