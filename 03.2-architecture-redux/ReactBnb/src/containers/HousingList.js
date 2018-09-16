@@ -13,7 +13,12 @@ export default class HousingList extends React.Component {
         return (
             <View>
                 { this.state.housings.map( housing => (
-                    <TouchableOpacity onPress={() => this.props.onScreenChange( 'detail', { housing })} key={housing.listing.id}>
+					<TouchableOpacity
+						onPress={() => this.props.onScreenChange(
+							'detail',
+							{ housing }
+						)}
+						key={housing.listing.id}>
                         <HousingListItem housing={ housing } />
                     </TouchableOpacity>
                 ))}
