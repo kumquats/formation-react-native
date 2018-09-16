@@ -1,8 +1,8 @@
-# TP 03.2 - Architecture d'application : Redux
+# TP 04.1 - Architecture d'application : Redux
 
 ## Objectifs
 
-Architecturer son application avec Redux
+Organiser son application avec Redux
 
 ## Préparatifs
 1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
