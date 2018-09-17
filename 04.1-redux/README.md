@@ -18,10 +18,12 @@ Organiser son application avec Redux
 	└─ src/
 		├─ actions/
 		├─ components/
-		│   └─ HousingListItem.js
+		│   ├─ HousingListItem.js
+		│   ├─ SearchBar.js
+		│   └─ StarRating.js
 		├─ containers/
-		│   ├─ HousingList.js
 		│   ├─ HousingDetail.js
+		│   ├─ HousingList.js
 		│   └─ Navigator.js
 		├─ reducers/
 		└─ store.js
