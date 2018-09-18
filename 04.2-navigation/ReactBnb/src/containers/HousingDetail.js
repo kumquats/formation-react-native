@@ -7,7 +7,7 @@ import { changeScreen } from '../actions/navigation';
 import StarRating from '../components/StarRating';
 
 class HousingDetail extends React.Component {
-	componentWillMount() {
+	componentDidMount() {
         this.props.fetchHousingDetail( this.props.params.housingId );
 	}
 
@@ -38,7 +38,7 @@ class HousingDetail extends React.Component {
 			);
 		}
 		return null;
-    }
+	}
 }
 
 function mapStateTopProps( state ) {

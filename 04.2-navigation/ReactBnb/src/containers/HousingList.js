@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Platform } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Platform, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -9,9 +9,8 @@ import { fetchHousings } from '../actions/housings';
 import { changeScreen } from '../actions/navigation';
 
 
-
 class HousingList extends React.Component {
-	componentWillMount() {
+	componentDidMount() {
         this.props.fetchHousings();
 	}
 
@@ -19,20 +18,28 @@ class HousingList extends React.Component {
         return (
 			<View style={styles.container}>
 				<SearchBar style={styles.searchBar} />
-				{ this.props.housings.map( housing => (
-					<TouchableOpacity
-					style={ styles.button }
-					onPress={() => this.props.changeScreen( 'detail', { housingId: housing.listing.id })}
-					key={housing.listing.id}>
-						<HousingListItem housing={ housing } />
-					</TouchableOpacity>
-				))}
+				<FlatList
+					data={this.props.housings}
+					renderItem={({ item }) => (
+						<TouchableOpacity
+							style={ styles.button }
+							onPress={() => this.props.changeScreen(
+								'detail',
+								{ housingId: item.listing.id }
+							)}
+						>
+							<HousingListItem housing={ item } />
+						</TouchableOpacity>
+					)}
+					keyExtractor={item => item.listing.id.toString()}
+				/>
 			</View>
         );
     }
 }
 
 function mapStateTopProps( state ) {
+	console.log('/////////////', state);
     return {
         housings: state.housingList
     };
