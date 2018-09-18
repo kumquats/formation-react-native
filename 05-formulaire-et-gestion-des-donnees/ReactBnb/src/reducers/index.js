@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 // On importe les sous-reducers
 import housingList from './housingList';
 import housingDetail from './housingDetail';
-import nav from './nav';
 
 // Combine reducers prend en paramètre un objet
 // dont les clés représentent les propriétés du state
@@ -11,5 +10,4 @@ import nav from './nav';
 export default combineReducers({
     housingList,
     housingDetail,
-    nav
 });

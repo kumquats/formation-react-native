@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Platform, Image, FlatList } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Platform, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -8,11 +8,11 @@ import SearchBar from '../components/SearchBar';
 import { fetchHousings } from '../actions/housings';
 
 class HousingList extends React.Component {
-    static navigationOptions = {
-        title: 'Liste des logements'
+	static navigationOptions = {
+		title: 'Liste des logements'
 	};
 
-	componentWillMount() {
+	componentDidMount() {
         this.props.fetchHousings();
 	}
 
@@ -24,29 +24,35 @@ class HousingList extends React.Component {
 					data={this.props.housings}
 					renderItem={({ item }) => (
 						<TouchableOpacity
-						style={ styles.button }
-						onPress={() => this.props.navigation.navigate('detail', {id: item.listing.id})}>
+							style={ styles.button }
+							onPress={() => this.props.navigation.navigate(
+								'detail',
+								{ id: item.listing.id }
+							)}
+						>
 							<HousingListItem housing={ item } />
 						</TouchableOpacity>
 					)}
-					keyExtractor={item => item.listing.id}
+					keyExtractor={item => item.listing.id.toString()}
 				/>
 			</View>
         );
     }
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
     return {
         housings: state.housingList
     };
 }
 
-function mapDispatchTopProps( dispatch ) {
-    return bindActionCreators( { fetchHousings }, dispatch );
+function mapDispatchToProps( dispatch ) {
+	return bindActionCreators( { fetchHousings }, dispatch );
 }
 
-export default connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
+
+
+export default connect( mapStateToProps, mapDispatchToProps )( HousingList );
 
 const searchBarHeight = Platform.select({ android: 78, ios: 100 });
 const styles = StyleSheet.create({
