@@ -38,18 +38,19 @@ class HousingList extends React.Component {
     }
 }
 
-function mapStateTopProps( state ) {
-	console.log('/////////////', state);
+function mapStateToProps( state ) {
     return {
         housings: state.housingList
     };
 }
 
-function mapDispatchTopProps( dispatch ) {
-    return bindActionCreators( { changeScreen, fetchHousings }, dispatch );
+function mapDispatchToProps( dispatch ) {
+	return bindActionCreators( { changeScreen, fetchHousings }, dispatch );
 }
 
-export default connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
+
+
+export default connect( mapStateToProps, mapDispatchToProps )( HousingList );
 
 const searchBarHeight = Platform.select({ android: 78, ios: 100 });
 const styles = StyleSheet.create({
