@@ -3,7 +3,6 @@ import { combineReducers } from 'redux';
 // On importe les sous-reducers
 import housingList from './housingList';
 import housingDetail from './housingDetail';
-import nav from './nav';
 import { reducer as form } from 'redux-form';
 
 // Combine reducers prend en paramètre un objet
@@ -12,6 +11,5 @@ import { reducer as form } from 'redux-form';
 export default combineReducers({
     housingList,
     housingDetail,
-    nav,
     form
 });

@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default reduxForm( { form: 'search' })( SearchForm );
+export default reduxForm( { form: 'search', destroyOnUnmount: false })( SearchForm );
