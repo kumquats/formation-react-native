@@ -4,7 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import configureStore from './src/store';
 import { Provider } from 'react-redux'; // connexion store <-> composants
 
-import {MainNavigator} from './src/containers/Navigator';
+import Navigator from './src/containers/Navigator';
 
 const store = configureStore(); // On crée le store
 
@@ -13,7 +13,7 @@ export default class App extends Component {
 		return (
 			<View style={styles.container}>
 				<Provider store={store}>
-					<MainNavigator />
+					<Navigator />
 				</Provider>
 			</View>
 		);
