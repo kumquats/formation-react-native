@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Platform, Image, FlatList, Button } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Platform, FlatList, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { formValueSelector } from 'redux-form';
@@ -9,13 +9,12 @@ import SearchBar from '../components/SearchBar';
 import { fetchHousings } from '../actions/housings';
 
 class HousingList extends React.Component {
-    static navigationOptions = ({ navigation }) => ({
+	static navigationOptions = ({ navigation }) => ({
 		title: 'Liste des logements',
-		headerRight: <Button title="Créer" style={styles.addButton} onPress={() => navigation.navigate( 'create' )}/>,
-		headerStyle: { paddingRight:16 },
+		headerRight: <Button title="Créer" style={styles.addButton} onPress={() => navigation.navigate( 'create' )}/>
 	});
 
-	componentWillMount() {
+	componentDidMount() {
         this.props.fetchHousings();
 	}
 
@@ -27,19 +26,23 @@ class HousingList extends React.Component {
 					data={this.props.housings}
 					renderItem={({ item }) => (
 						<TouchableOpacity
-						style={ styles.button }
-						onPress={() => this.props.navigation.navigate('detail', {id: item.listing.id})}>
+							style={ styles.button }
+							onPress={() => this.props.navigation.navigate(
+								'detail',
+								{ id: item.listing.id }
+							)}
+						>
 							<HousingListItem housing={ item } />
 						</TouchableOpacity>
 					)}
-					keyExtractor={item => item.listing.id}
+					keyExtractor={item => item.listing.id.toString()}
 				/>
 			</View>
         );
     }
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
 	const selector = formValueSelector( 'search' );
 
     return {
@@ -48,11 +51,13 @@ function mapStateTopProps( state ) {
     };
 }
 
-function mapDispatchTopProps( dispatch ) {
-    return bindActionCreators( { fetchHousings }, dispatch );
+function mapDispatchToProps( dispatch ) {
+	return bindActionCreators( { fetchHousings }, dispatch );
 }
 
-export default connect( mapStateTopProps,mapDispatchTopProps )( HousingList );
+
+
+export default connect( mapStateToProps, mapDispatchToProps )( HousingList );
 
 const searchBarHeight = Platform.select({ android: 78, ios: 100 });
 const styles = StyleSheet.create({
@@ -66,7 +71,7 @@ const styles = StyleSheet.create({
 	},
 	searchBar: {
 		position: 'absolute',
-		height: searchBarHeight,
+        height: searchBarHeight,
         top: 0,
         left: 0,
 		right: 0,
@@ -74,6 +79,6 @@ const styles = StyleSheet.create({
 	},
 	addButton: {
 		position:'absolute',
-		left: 50
+		// left: 50
 	}
 });

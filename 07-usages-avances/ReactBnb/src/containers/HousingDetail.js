@@ -6,11 +6,11 @@ import { fetchHousingDetail } from '../actions/housings';
 import StarRating from '../components/StarRating';
 
 class HousingDetail extends React.Component {
-    static navigationOptions = {
-        title: 'Détail d\'un logement'
-    };
-    
-	componentWillMount() {
+	static navigationOptions = {
+		title: 'Détail d\'un logement'
+	};
+
+	componentDidMount() {
         this.props.fetchHousingDetail( this.props.navigation.state.params.id );
 	}
 
@@ -38,20 +38,20 @@ class HousingDetail extends React.Component {
 			);
 		}
 		return null;
-    }
+	}
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
     return {
         housing: state.housingDetail
     };
 }
 
-function mapDispatchTopProps( dispatch ) {
+function mapDispatchToProps( dispatch ) {
     return bindActionCreators( { fetchHousingDetail }, dispatch );
 }
 
-export default connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
+export default connect( mapStateToProps, mapDispatchToProps )( HousingDetail );
 
 
 const styles = StyleSheet.create({
