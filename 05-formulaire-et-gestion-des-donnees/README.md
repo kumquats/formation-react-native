@@ -88,8 +88,9 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
     ```
 1. Connecter le formulaire à redux form en le nommant `"search"`
     ```js
-    export default reduxForm( { form: 'search' })( SearchForm );
+    export default reduxForm( { form: 'search', destroyOnUnmount: false })( SearchForm );
     ```
+	NB : destroyOnUnmount: false permet de garder le state du formulaire actif même une fois qu'il a été démonté (unmount). C'est indispensable si l'on veut utiliser les valeurs saisies dans le formulaire en dehors du formulaire lui-même. Ici on utilise le state pour l'affichage de la ville recherchée dans la SearchBar.
 1. Créer une fonction `submit` qui sera appelée à la soumission du formulaire et qui permettra de déclencher l'action creator `fetchHousings` (et donc un appel au webservice d'AirBnB) et de revenir sur la page liste
     ```jsx
     function submit( navigation ) {
