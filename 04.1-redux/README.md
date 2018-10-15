@@ -42,15 +42,18 @@ Organiser son application avec Redux
 		* un objet `state` avec comme valeur par défaut la constante `defaultState` définie juste au dessus,
 		* et un objet `action` qui correspondra à l'action dispatchée par l'action creator
 	+ cette fonction retournera pour l'instant le state reçu en paramètre sans lui appliquer de modifications
-1. Connecter `HousingList` au store :
+2. Connecter `HousingList` au store :
 	+ supprimer le state local (`this.state`)
 	+ récupérer à la place le state `housingList` du store à l'aide du décorateur `connect` et de la fonction `mapStateToProps()`
 	+ modifier la fonction `render()` en conséquence (disparition de `this.state`)
-1. Modifier le fichier `App.js` :
+3. Modifier le fichier `App.js` :
 	+ créer le store de l'application à l'aide de la fonction `createStore( reducer )`
-	+ Dans l'appel à la méthode `render()` utiliser le composant `<Provider>` pour entourer le composant `Navigator`. Cela permettra de rendre le `state` accessible dans la `HousingList`. (ne pas oublier de passer le `store` au `Provider` !)
-1. A ce stade, la compilation doit fonctionner et l'app s'exécuter sans erreur ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `HousingList`.
-1. Créer un action creator `fetchHousings()` dans le fichier `actions/housings.js`. Cet action creator devra retourner une action (objet) avec 2 propriétés :
+	+ Dans l'appel à la méthode `render()` utiliser le composant `<Provider>` pour entourer le composant `Navigator`. Cela permettra au `connect()` de rendre le `state` accessible dans la `HousingList`. (ne pas oublier de passer le `store` au `Provider` !)
+4. A ce stade, la compilation doit fonctionner et l'app s'exécuter sans erreur ! Pour s'en persuader, vous pouvez modifier le state par défaut retourné par le reducer en y mettant des valeurs en dur : si tout se passe bien, elles vont s'afficher dans la `HousingList`.
+
+*Maintenant que l'on est capable d'accéder en lecture au contenu du store, nous allons nous atteler à la **modification du store**.*
+
+5. Créer un action creator `fetchHousings()` dans le fichier `actions/housings.js`. Cet action creator devra retourner une action (objet) avec 2 propriétés :
 	+ une propriété `type`HOUSING_LIST_COMPLETE' (préférez l'utilisation d'une constante, qui aura l'avantage de pouvoir être réutilisée dans le reducer)
 	+ une propriété `housings` qui aura comme valeur le tableau importé via `housings.json`
 	```js
@@ -60,12 +63,12 @@ Organiser son application avec Redux
 		housings: housings
 	}
 	```
-1. Dans `HousingList` lancer l'action creator `fetchHousings` au `componentDidMount()`, utiliser pour cela la fonction `mapDispatchToProps()`
-1. Dans le reducer (`reducers/index.js`) prendre en charge l'action dispatchée par l'action creator `fetchHousings()` :
+6. Dans `HousingList` lancer l'action creator `fetchHousings` au `componentDidMount()`, utiliser pour cela la fonction `mapDispatchToProps()`
+7. Dans le reducer (`reducers/index.js`) prendre en charge l'action dispatchée par l'action creator `fetchHousings()` :
 	+ importer la constante `HOUSING_LIST_COMPLETE` de l'action creator
-	+ tester si le type de l'action reçu correspond à `HOUSING_LIST_COMPLETE`
+	+ tester si le type de l'action reçue correspond à `HOUSING_LIST_COMPLETE`
 	+ retourner le nouveau state en y injectant la propriété `action.housings`
-1. Vous pouvez à nouveau tester l'application, cette fois la HousingList doit se remplir presque immédiatement après le lancement.
+8. Vous pouvez à nouveau tester l'application, cette fois la HousingList doit se remplir presque immédiatement après le lancement.
 
 
 ## Pour aller plus loin
