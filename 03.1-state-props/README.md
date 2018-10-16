@@ -63,4 +63,5 @@ Mettre en place la page liste au moyen de sous-composants, des state et des prop
 				<HousingList onScreenChange={this.handlePageChange} param={this.state.screenParams} />
 			```
     + Coder la méthode `handleScreenChange( screen, params )` afin de mettra à jour le state en assignant le paramètre `screen` au state `currentScreen` et le paramètre `params` au state `screenParams`
+    + Utiliser ce composant `Navigator` comme enfant du composant `App` en lieu et place du `HousingListItem`
 1. Dans le composant `HousingDetail`, ajouter un bouton "Retour à la liste" permettant de revenir à l'écran de liste (appel de la méthode `this.props.onScreenChange(screen, params)`)
