@@ -122,10 +122,10 @@ Organiser son application avec Redux
             housing: ...
         }
         ```
-1. Dans le `reducer` `src/reducers/housingDetail.js`
-    + Avec un state par défaut `housingDetail` égal à `null`
-    + Qui, lorsqu'une action de type `HOUSING_DETAIL_COMPLETE` est lancée, injecte dans le state le logement qu'elle contient
-1. Modifier le composant `HousingDetail` pour prendre en compte le paramètre id et le store Redux :
+1. Dans le `reducer` `src/reducers/index.js`
+    + Ajouter dans le `defaultState` une propriété `housingDetail` égale à `null`
+    + lorsqu'une action de type `HOUSING_DETAIL_COMPLETE` est lancée, injecter dans le state `housingDetail` le logement qu'elle contient
+2. Modifier le composant `HousingDetail` pour prendre en compte le paramètre id et le store Redux :
 	+ Importer l'action creator `fetchHousingDetail`
 	+ Connecter le composant au store redux afin de récupérer le state `housingDetail`
 	+ Implémenter la méthode `componentDidMount()` afin d'appeler l'action `fetchHousingDetail(id)`
