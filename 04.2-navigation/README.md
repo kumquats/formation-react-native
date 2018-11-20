@@ -9,6 +9,14 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
     ```bash
         npm install --save react-navigation
     ```
+3. Installer React Native Gesture Handlers
+    ```bash
+        npm install --save react-native-gesture-handler
+    ```
+4. Lier les modules React Native au code source natif
+    ```bash
+       react-native link
+    ```
 
 ## Instructions
 1. Créer un composant `SearchForm` (`src/containers/SearchForm.js`) affichant pour l'instant juste un texte de votre choix (ce composant sera enrichi lors du prochain TP).
