@@ -3,7 +3,7 @@ import {View, Text, Image, StyleSheet} from 'react-native';
 import StarRating from './StarRating';
 
 export default function HousingListItem( props ){
- return (
+	return (
 		<View style={ styles.container }>
 			<Image style={ styles.picture } source={{ uri: props.housing.listing.picture.picture  }} />
 			<Text style={ styles.details } ellipsizeMode="tail" numberOfLines={ 1 }>{ props.housing.listing.space_type.toUpperCase() } - { props.housing.listing.guest_label.toUpperCase() }</Text>

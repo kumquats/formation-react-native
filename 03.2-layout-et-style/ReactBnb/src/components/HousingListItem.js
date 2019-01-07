@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 
 export default function HousingListItem( props ){
- return (
+	return (
 		<View>
 			<Text>{ props.housing.listing.space_type } - { props.housing.listing.guest_label }</Text>
 			<Text>{ props.housing.listing.name }</Text>
