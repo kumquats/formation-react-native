@@ -9,10 +9,9 @@ import SearchBar from '../components/SearchBar';
 import { fetchHousings } from '../actions/housings';
 
 class HousingList extends React.Component {
-	static navigationOptions = ({ navigation }) => ({
-		title: 'Liste des logements',
-		headerRight: <Button title="Créer" style={styles.addButton} onPress={() => navigation.navigate( 'create' )}/>
-	});
+	static navigationOptions = {
+		title: 'Liste des logements'
+	};
 
 	componentDidMount() {
         this.props.fetchHousings();
@@ -21,7 +20,11 @@ class HousingList extends React.Component {
     render() {
         return (
 			<View style={styles.container}>
-				<SearchBar city={this.props.city} navigation={this.props.navigation} style={styles.searchBar} />
+				<SearchBar
+					city={this.props.city}
+					onPress={()=> this.props.navigation.navigate('search')}
+					style={styles.searchBar}
+				/>
 				<FlatList
 					data={this.props.housings}
 					renderItem={({ item }) => (

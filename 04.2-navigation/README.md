@@ -25,7 +25,7 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
     - Le reducer **navigation** (`src/reducers/navigation`)
     - L'action **navigation** (`src/actions/navigation.js`)
     - commenter les appels à la fonction `changeScreen` dans `HousingList` et `HousingDetail`
-4. Dans `HousingList`, ajouter autour de la `SearchBar` un composant `TouchableOpacity` qui devra amener vers la page `SearchForm` à l'aide de la props `this.props.navigation.navigate`
+4. Dans `HousingList`, ajouter autour de la `SearchBar` un composant `TouchableOpacity` qui devra amener vers la page `SearchForm` à l'aide de la méthode `this.props.navigation.navigate`
 
 ## Pour aller plus loin :
 1. Utiliser react-navigation pour gérer le 'tap' sur un élément de la HousingList et la redirection vers la page HousingDetail.

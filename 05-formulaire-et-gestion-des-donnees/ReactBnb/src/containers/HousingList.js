@@ -19,7 +19,10 @@ class HousingList extends React.Component {
     render() {
         return (
 			<View style={styles.container}>
-				<SearchBar navigation={this.props.navigation} style={styles.searchBar} />
+				<SearchBar
+					onPress={()=> this.props.navigation.navigate('search')}
+					style={styles.searchBar}
+				/>
 				<FlatList
 					data={this.props.housings}
 					renderItem={({ item }) => (

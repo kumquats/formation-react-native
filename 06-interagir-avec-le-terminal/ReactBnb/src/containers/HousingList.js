@@ -20,7 +20,11 @@ class HousingList extends React.Component {
     render() {
         return (
 			<View style={styles.container}>
-				<SearchBar city={this.props.city} navigation={this.props.navigation} style={styles.searchBar} />
+				<SearchBar
+					city={this.props.city}
+					onPress={()=> this.props.navigation.navigate('search')}
+					style={styles.searchBar}
+				/>
 				<FlatList
 					data={this.props.housings}
 					renderItem={({ item }) => (
@@ -43,7 +47,7 @@ class HousingList extends React.Component {
 
 function mapStateToProps( state ) {
 	const selector = formValueSelector( 'search' );
-	
+
     return {
 		housings: state.housingList,
 		city: selector( state, 'city' )

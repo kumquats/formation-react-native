@@ -6,7 +6,7 @@ const SearchBar = props => (
 	<View style={[props.style, styles.container]}>
 		<TouchableOpacity
 			style={styles.input}
-			onPress={() => props.navigation.navigate( 'search' ) }
+			onPress={props.onPress}
 			>
 			<Text style={[styles.text, styles.leftArrow]}>{'<-'}</Text>
 			<Text style={[styles.text]}>{props.city || 'Partout'}</Text>
