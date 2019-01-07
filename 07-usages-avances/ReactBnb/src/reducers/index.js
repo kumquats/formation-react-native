@@ -3,8 +3,8 @@ import { combineReducers } from 'redux';
 // On importe les sous-reducers
 import housingList from './housingList';
 import housingDetail from './housingDetail';
+import searchForm from './searchForm';
 import { reducer as form } from 'redux-form';
-import newHousing from './newHousing';
 
 // Combine reducers prend en paramètre un objet
 // dont les clés représentent les propriétés du state
@@ -12,6 +12,6 @@ import newHousing from './newHousing';
 export default combineReducers({
     housingList,
     housingDetail,
+    searchForm,
     form,
-    newHousing
 });
