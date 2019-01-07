@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, Text, Input, Button, TextInput, StyleSheet, DatePickerAndroid, Keyboard } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
 import { fetchHousings } from '../actions/housings';
+import { geolocate } from '../actions/geolocate';
 
 const CityInput = props => {
 	const { input, ...inputProps } = props;
@@ -23,7 +25,7 @@ const DateInput = props => {
                         date: props.input.value instanceof Date ? props.input.value : new Date()
                     }).then( ({ action, year, month, day}) => {
                         if (action !== DatePickerAndroid.dismissedAction) {
-                            input.onChange( new Date( year, month, day ) );
+                            input.onChange( new Date( Date.UTC(year, month, day) ) );
                         }
                     });
                 }}
@@ -51,8 +53,14 @@ class SearchForm extends React.Component {
             <View style={styles.container}>
                 <Field
                     name="city"
-                    component={CityInput}
+					component={CityInput}
+					editable={!this.props.isLoading}
                 />
+				<Button
+					title="Géolocalisez-moi"
+					onPress={ ()=>this.props.dispatch( geolocate() )}
+					disabled={this.props.isLoading}
+					/>
                 <Field
                     name="minDate"
                     placeholder="Date mini"
@@ -80,5 +88,10 @@ const styles = StyleSheet.create({
         borderRadius: 3
 	}
 });
+function mapStateToProps(state){
+	return {
+		isLoading: state.searchForm.geolocationIsLoading
+	}
+}
 
-export default reduxForm( { form: 'search', destroyOnUnmount: false })( SearchForm );
+export default reduxForm( { form: 'search', destroyOnUnmount: false })( connect(mapStateToProps)(SearchForm) );

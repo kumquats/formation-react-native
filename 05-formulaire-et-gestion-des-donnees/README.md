@@ -33,13 +33,13 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
     export const fetchHousings = function() {
         return function( dispatch, getState ) {
             // On appelle le webservice
-            return fetch('https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true&_format=for_explore_search_web' )
+            return fetch(`https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&_format=for_explore_search_web&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true`)
                 .then(response => response.json())
                 .then(responseJson => {
                     // Lorsque le webservice répond, on dispatche l'action en fournissant les logements récupérés
                     dispatch({
                         type: HOUSING_LIST_COMPLETE,
-                        housings: responseJson.explore_tabs[0].sections[0].listings
+                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.section_type_uid=='PAGINATED_HOMES') ).listings
                     });
                 })
         };
@@ -76,7 +76,7 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
                                 date: props.input.value instanceof Date ? props.input.value : new Date()
                             }).then( ({ action, year, month, day}) => {
                                 if (action !== DatePickerAndroid.dismissedAction) {
-                                    input.onChange( new Date( year, month, day ) );
+                                    input.onChange( new Date( Date.UTC(year, month, day ) ) );
                                 }
                             });
                         }}
@@ -122,12 +122,12 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
             const maxDate = selector( getState(), 'maxDate' );
 
             // On les transmet au webservice
-            return fetch('https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true&location=' + city + '&checkin=' + ( minDate && minDate.toISOString() ) + '&checkout=' + ( maxDate && maxDate.toISOString() ) )
+            return fetch(`https://www.airbnb.fr/api/v2/explore_tabs?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&_format=for_explore_search_web&currency=EUR&locale=fr&refinement_paths%5B%5D=%2Fhomes&is_guided_search=true&query=${ city || '' }&checkin=${ (minDate && minDate.toISOString()) || '' }&checkout=${ (maxDate && maxDate.toISOString()) || '' }`)
                 .then(response => response.json())
                 .then(responseJson => {
                     dispatch({
                         type: HOUSING_LIST_COMPLETE,
-                        housings: responseJson.explore_tabs[0].sections[0].listings
+                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.section_type_uid=='PAGINATED_HOMES') ).listings
                     });
                 })
         };

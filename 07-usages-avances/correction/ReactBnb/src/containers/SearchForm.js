@@ -22,7 +22,7 @@ const DateInput = props => {
                         date: props.input.value instanceof Date ? props.input.value : new Date()
                     }).then( ({ action, year, month, day}) => {
                         if (action !== DatePickerAndroid.dismissedAction) {
-                            input.onChange( new Date( year, month, day ) );
+                            input.onChange( new Date( Date.UTC(year, month, day) ) );
                         }
                     });
                 }}
@@ -44,7 +44,7 @@ class SearchForm extends React.Component {
     static navigationOptions = {
         title: 'Recherche'
     };
-    
+
     render() {
         return (
             <View style={styles.container}>
