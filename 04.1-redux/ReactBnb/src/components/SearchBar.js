@@ -1,11 +1,14 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-const SearchBar = props => (<View style={[props.style, styles.container]}>
-	<View style={styles.input}>
-		<Text style={[styles.text, styles.leftArrow]}>{'<-'}</Text>
-		<Text style={[styles.text]}>Partout</Text>
+
+const SearchBar = props => (
+	<View style={[props.style, styles.container]}>
+		<View style={styles.input}>
+			<Text style={[styles.text, styles.leftArrow]}>{'<-'}</Text>
+			<Text style={[styles.text]}>Partout</Text>
+		</View>
 	</View>
-</View>);
+);
 export default SearchBar;
 
 const styles = StyleSheet.create({

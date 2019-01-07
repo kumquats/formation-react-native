@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+
 const SearchBar = props => (
 	<View style={[props.style, styles.container]}>
 		<TouchableOpacity

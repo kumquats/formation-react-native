@@ -1,14 +1,17 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
-const SearchBar = props => (<View style={[props.style, styles.container]}>
-	<TouchableOpacity
-		style={styles.input}
-		onPress={() => props.navigation.navigate( 'search' ) }
-		>
-		<Text style={[styles.text, styles.leftArrow]}>{'<-'}</Text>
-		<Text style={[styles.text]}>{props.city || 'Partout'}</Text>
-	</TouchableOpacity>
-</View>);
+
+const SearchBar = props => (
+	<View style={[props.style, styles.container]}>
+		<TouchableOpacity
+			style={styles.input}
+			onPress={() => props.navigation.navigate( 'search' ) }
+			>
+			<Text style={[styles.text, styles.leftArrow]}>{'<-'}</Text>
+			<Text style={[styles.text]}>{props.city || 'Partout'}</Text>
+		</TouchableOpacity>
+	</View>
+);
 export default SearchBar;
 
 const styles = StyleSheet.create({
