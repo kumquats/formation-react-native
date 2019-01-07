@@ -9,7 +9,7 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
     ```bash
     npm install -g react-native-cli
     ```
-1. Installer [React Native Debugger](https://github.com/jhen0409/react-native-debugger)
+1. Installer [React Native Debugger](https://github.com/jhen0409/react-native-debugger), suivre les instructions d'installation sur https://github.com/jhen0409/react-native-debugger#installation
 
 
 ## Instructions
@@ -31,12 +31,12 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
     + Ajouter un console.log dans le code et constater l'affichage dans la console de la fenêtre de debug
     + Inspecter le code JS et mettre un point d'arrêt. Recharger l'application et constater que l'exécution s'interrompt au point d'arrêt
 1. **Utiliser React Native Debugger** :
- 	+ désactiver la fonction "Debug JS Remotely"
- 	+ fermer l'onglet Chrome du debugger
-    + lancer l'application react-native-debugger sur le poste de développement
-    + activer la fonction "Debug JS Remotely"
-    + via RNDebugger modifier le texte de l'application
-    + via RNDebugger modifier la taille et la couleur du texte de l'application
+ 	+ Désactiver la fonction "Debug JS Remotely"
+ 	+ Fermer l'onglet Chrome du debugger
+    + Lancer l'application react-native-debugger sur le poste de développement
+    + Activer la fonction "Debug JS Remotely"
+    + Via RNDebugger modifier le texte de l'application
+    + Via RNDebugger modifier la taille et la couleur du texte de l'application
 2. **Modifier l'écran principal** afin d'afficher:
     - Le titre de l'application **ReactBnb**
     - 2 logements fictifs (composants `Text` uniquement) avec :
