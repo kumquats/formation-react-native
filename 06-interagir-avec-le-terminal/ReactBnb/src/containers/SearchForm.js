@@ -14,7 +14,8 @@ const CityInput = props => {
 }
 
 const DateInput = props => {
-    const { input, ...inputProps } = props;
+	const { input, ...inputProps } = props;
+	debugger;
     return <TextInput
                 placeholder={inputProps.placeholder}
                 onFocus={() => {
@@ -29,7 +30,7 @@ const DateInput = props => {
                 }}
                 style={styles.input}
                 {...inputProps}
-                value={props.input.value && props.input.value.toLocaleDateString('fr-FR')}
+                value={props.input.value && props.input.value.toDateString()}
             />;
 }
 

@@ -31,7 +31,7 @@ const DateInput = props => {
                 }}
                 style={styles.input}
                 {...inputProps}
-                value={props.input.value && props.input.value.toLocaleDateString('fr-FR')}
+                value={props.input.value && props.input.value.toDateString()}
             />;
 }
 
