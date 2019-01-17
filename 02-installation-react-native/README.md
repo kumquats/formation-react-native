@@ -26,11 +26,19 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
 1. **Afficher le menu de debug de l'app** (en secouant le téléphone !) :
     + Activer le Live Reload
     + modifier le contenu du fichier App.js et constater le rechargement de l'appli
-	+ Activer le Hot Reload, modifier le code JS et constater  le rafraîchissement de l'interface sans rechargement (seule la partie de code modifiée est mise à jour)
+	+ Désactiver le Live Reload et Activer le Hot Reload, modifier le code JS et constater  le rafraîchissement de l'interface sans rechargement (seule la partie de code modifiée est mise à jour)
     + Activer la fonction "Debug JS Remotely", un nouvel onglet doit s'ouvrir dans Chrome : penser à afficher les outils de développement (touche F12) pour que le mode debug fonctionne
     + Ajouter un console.log dans le code et constater l'affichage dans la console de la fenêtre de debug
     + Inspecter le code JS et mettre un point d'arrêt. Recharger l'application et constater que l'exécution s'interrompt au point d'arrêt
-1. **Utiliser React Native Debugger** :
+
+	NB: si vous rencontrez des difficultés à afficher le menu de debug en secouant le téléphone, vous pouvez utiliser la commande suivante :
+		```
+		adb shell input keyevent KEYCODE_MENU
+		```
+
+	NB: si vous utilisez l'émulateur vous pouvez afficher le menu de debug à l'aide des touches CTRL+M
+
+2. **Utiliser React Native Debugger** :
  	+ Désactiver la fonction "Debug JS Remotely"
  	+ Fermer l'onglet Chrome du debugger
     + Lancer l'application react-native-debugger sur le poste de développement
