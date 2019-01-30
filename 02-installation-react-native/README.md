@@ -23,7 +23,7 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
 	```bash
 	react-native run-android
 	```
-1. **Afficher le menu de debug de l'app** (en secouant le téléphone !) :
+2. **Afficher le menu de debug de l'app** soit en secouant le téléphone, soit via un appui long sur la touche menu (ne fonctionne que sur certains téléphones) soit en tapant fans la console la commande `adb shell input keyevent 82` :
     + Activer le Live Reload
     + modifier le contenu du fichier App.js et constater le rechargement de l'appli
 	+ Désactiver le Live Reload et Activer le Hot Reload, modifier le code JS et constater  le rafraîchissement de l'interface sans rechargement (seule la partie de code modifiée est mise à jour)
@@ -38,7 +38,7 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
 
 	NB: si vous utilisez l'émulateur vous pouvez afficher le menu de debug à l'aide des touches CTRL+M
 
-2. **Utiliser React Native Debugger** :
+3. **Utiliser React Native Debugger** :
  	+ Désactiver la fonction "Debug JS Remotely"
  	+ Fermer l'onglet Chrome du debugger
     + Lancer l'application react-native-debugger sur le poste de développement
