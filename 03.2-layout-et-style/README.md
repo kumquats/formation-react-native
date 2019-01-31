@@ -11,7 +11,7 @@ Améliorer l'apparence et le layout de l'application grâce aux styles.
 1. Ajouter des images dans les composants `HousingListItem` et `HousingDetail` (l'url des images utilisées pour les vignettes se trouve dans la propriété `listing.picture.picture` du fichier json)
 1. Styler les composants `HousingListItem` et `HousingList` de manière à obtenir le résultat suivant:<br />
 	<img src="./list.png" width="300" />
-	+ L'image doit avoir des bords arrondis de 3 pixels, un largeur de 273 pixels et une marge inférieure de 20 pixels
+	+ L'image doit avoir des bords arrondis de 3 pixels, un largeur de 100%, une hauteur de 155 pixels et une marge inférieure de 20 pixels
 	+ Le type de logement doit être de couleur `brown`, en majuscule, en gras, avoir une taille de police de 10 pixels et une marge inférieure de 7 pixels
 	+ La description doit être en gras, avoir une taille de police de 20 pixels et une marge inférieure de 5 pixels
 	+ Le prix doit avoir une marge inférieure de 3 pixels
