@@ -35,18 +35,18 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
     + augmenter la RAM allouée à l'émulateur si possible
 5. Lancer Android Studio et ouvrir le SDK Manager
 	<img src="images/sdk-manager-button.jpg" width="700">
-6. Dans le SDK Manager, installer les SDK **Android 8.1 (API 27)** en cochant les éléments suivants (cocher la case "Show Package details" en bas à droite pour afficher toutes les options) :
+6. Dans le SDK Manager, installer les SDK **Android 9.0 (API 28)** en cochant les éléments suivants (**cocher la case "Show Package details"** en bas à droite pour afficher toutes les options) :
 	```
 	SDK Platforms /
-		Android 8.1 (Oreo) /
-			+ Android SDK Platform 27
+		Android 9.0 (Pie) /
+			+ Android SDK Platform 28
 	```
 	<img src="images/sdk-manager-1.jpg" width="700"><br>
 	Puis dans l'onglet **"SDK Tools"** cocher :
 	```
 	SDK Tools /
 		Android SDK Build-tools /
-			+ 27.0.3
+			+ 28.0.3
 		+ Android SDK Platform-tools
 		+ Android SDK Tools
 		+ Google USB Driver
