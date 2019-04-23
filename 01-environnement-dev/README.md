@@ -74,7 +74,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
 	*En cas d'échec, vérifier que tous les préparatifs (cf. début du TP) ont bien été réalisés, débrancher/rebrancher le câble USB, et installer si besoin les drivers de votre téléphone (disponibles en principe sur le site du fabricant). Pour les téléphones Wiko Jerry 3, suivre les instructions d'installation des drivers dans le chapitre [Installation des Drivers Wiko Jerry 3](#installation-des-drivers-wiko-jerry-3).*
 
 ### 3. Node, Git & Python
-1. Installer NodeJS http://nodejs.org/ (version <u>10.x.x</u>)
+1. Installer NodeJS http://nodejs.org/ (version <u>11.x.x</u>)
 1. Installer Git http://git-scm.com/ et sélectionner les choix suivants pendant le processus d'installation :
     + "Use Git from the Windows Command Prompt"
     + "Checkout as-is, commit as-is"
