@@ -24,12 +24,12 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
     - Path Intellisense (https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 ### 2. Les SDK Android
-3. Installer [Java JDK (avec JRE)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) et modifier les variables d’environnement JAVA_HOME et PATH:
+3. Installer [Java JDK 8 (avec JRE)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) et modifier les variables d’environnement JAVA_HOME et PATH (remplacer `xxxxx` par votre numéro de version) :
     ```bash
-    JAVA_HOME = C:\Program Files\Java\jdk1.8.0_121
+    JAVA_HOME = C:\Program Files\Java\jdk1.8.xxxxx
     PATH +=
-        C:\Program Files\Java\jdk1.8.0_121;
-        C:\Program Files\Java\jdk1.8.0_121\bin;
+        C:\Program Files\Java\jdk1.8.xxxxx;
+        C:\Program Files\Java\jdk1.8.xxxxx\bin;
     ```
 4. Installer Android Studio
     + augmenter la RAM allouée à l'émulateur si possible
