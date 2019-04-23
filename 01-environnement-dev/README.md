@@ -71,7 +71,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
     List of devices attached
     015d21098658181a        device
     ```
-	*En cas d'échec, vérifier que tous les préparatifs (cf. début du TP) ont bien été réalisés, débrancher/rebrancher le câble USB, et installer si besoin les drivers de votre téléphone (disponibles en principe sur le site du fabricant)*
+	*En cas d'échec, vérifier que tous les préparatifs (cf. début du TP) ont bien été réalisés, débrancher/rebrancher le câble USB, et installer si besoin les drivers de votre téléphone (disponibles en principe sur le site du fabricant). Pour les téléphones Wiko Jerry 3, suivre les instructions d'installation des drivers dans le chapitre [Installation des Drivers Wiko Jerry 3](#installation-des-drivers-wiko-jerry-3).*
 
 ### 3. Node, Git & Python
 1. Installer NodeJS http://nodejs.org/ (version <u>10.x.x</u>)
@@ -87,3 +87,15 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
     ```bash
     npm install --global --production windows-build-tools
     ```
+
+## Installation des Drivers Wiko Jerry 3
+
+1. Ouvrir le gestionnaire de périphériques
+2. Sélectionner le périphérique W_K300
+3. faire clic-droit et "Mettre à jour le pilote"
+4. Sélectionner "Parcourir mon ordinateur à la recherche du logiciel de pilote"
+5. Sélectionner "Choisir parmi une liste de pilotes disponibles sur mon ordinateur"
+6. Attendre quelques instants que la liste des périphériques s'affiche
+7. Dans la liste des fabricants, sélectionner "WIKO" puis dans la liste des périphérique choisir "Wiko Android ADB interface"
+8. Cliquer sur suivant
+9. Relancer la commande `adb devices` et s'assurer que le périphérique apparait bien (pensez à dévérouiller le téléphone et éventuellement accepter la connexion à l'ordinateur)
