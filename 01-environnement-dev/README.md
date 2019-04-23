@@ -24,7 +24,7 @@ et en appuyant frénétiquement sur "Numéro de build" jusqu'à ce qu'un message
     - Path Intellisense (https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 ### 2. Les SDK Android
-3. Installer Java JDK (avec JRE) et modifier les variables d’environnement JAVA_HOME et PATH:
+3. Installer [Java JDK (avec JRE)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) et modifier les variables d’environnement JAVA_HOME et PATH:
     ```bash
     JAVA_HOME = C:\Program Files\Java\jdk1.8.0_121
     PATH +=
