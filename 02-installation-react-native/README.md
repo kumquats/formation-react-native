@@ -50,5 +50,4 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
     - 2 logements fictifs (composants `Text` uniquement) avec :
         + type & nb de lits (ex. "maison entière -  5 lits")
         + titre
-        + prix (ex. "99€ par nuit")
         + Note (en texte, pas d'image pour les étoiles mais une notation de la forme : "4/5")

@@ -12,7 +12,6 @@ export default class HousingDetail extends React.Component {
                 <View>
                     <Text>{ listing.space_type } - { listing.guest_label }</Text>
                     <Text>{ listing.name }</Text>
-                    <Text>{ pricing_quote.rate.amount_formatted } / nuit</Text>
                     <Text>Note: { listing.star_rating }/5</Text>
                     <Text>{ listing.city }</Text>
                     <Text>{ listing.bedroom_label }</Text>
