@@ -39,7 +39,7 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
                     // Lorsque le webservice répond, on dispatche l'action en fournissant les logements récupérés
                     dispatch({
                         type: HOUSING_LIST_COMPLETE,
-                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.section_type_uid=='PAGINATED_HOMES') ).listings
+                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.result_type=='listings' && section.listings && section.listings.length > 0) ).listings
                     });
                 })
         };
@@ -127,7 +127,7 @@ Connecter l'application à l'API d'AirBnb et ajouter un formulaire de recherche 
                 .then(responseJson => {
                     dispatch({
                         type: HOUSING_LIST_COMPLETE,
-                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.section_type_uid=='PAGINATED_HOMES') ).listings
+                        housings: responseJson.explore_tabs[0].sections.find(section=> (section.result_type=='listings' && section.listings && section.listings.length > 0) ).listings
                     });
                 })
         };
