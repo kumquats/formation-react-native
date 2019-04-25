@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Platform, FlatList, Button } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Platform, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { formValueSelector } from 'redux-form';
@@ -79,9 +79,5 @@ const styles = StyleSheet.create({
         left: 0,
 		right: 0,
 		zIndex: 1,
-	},
-	addButton: {
-		position:'absolute',
-		// left: 50
 	}
 });
