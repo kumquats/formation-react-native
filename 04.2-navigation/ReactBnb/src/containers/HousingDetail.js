@@ -40,7 +40,7 @@ class HousingDetail extends React.Component {
 	}
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
     return {
         housing: state.housingDetail
     };
@@ -50,7 +50,7 @@ function mapDispatchTopProps( dispatch ) {
     return bindActionCreators( { changeScreen, fetchHousingDetail }, dispatch );
 }
 
-export default connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
+export default connect( mapStateToProps, mapDispatchTopProps )( HousingDetail );
 
 
 const styles = StyleSheet.create({

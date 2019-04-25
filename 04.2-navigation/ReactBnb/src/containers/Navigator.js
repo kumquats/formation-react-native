@@ -19,10 +19,10 @@ class Navigator extends React.Component {
     }
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
     return {
         navigation: state.navigation
     };
 }
 
-export default connect( mapStateTopProps )( Navigator );
+export default connect( mapStateToProps )( Navigator );
