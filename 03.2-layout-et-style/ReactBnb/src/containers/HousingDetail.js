@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text } from 'react-native';
 
 export default class HousingDetail extends React.Component {
     render() {
-		const { listing, pricing_quote } = this.props.params.housing;
+		const { listing } = this.props.params.housing;
         return (
             <View>
                 <TouchableOpacity onPress={() => this.props.onScreenChange( 'list' )}>
@@ -16,7 +16,7 @@ export default class HousingDetail extends React.Component {
                     <Text>{ listing.city }</Text>
                     <Text>{ listing.bedroom_label }</Text>
                 </View>
-        </View>
+        	</View>
         );
     }
 }
