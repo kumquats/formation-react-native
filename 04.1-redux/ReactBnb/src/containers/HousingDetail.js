@@ -4,7 +4,7 @@ import StarRating from '../components/StarRating';
 
 export default class HousingDetail extends React.Component {
     render() {
-		const { listing, pricing_quote } = this.props.params.housing;
+		const { listing } = this.props.params.housing;
 		return (
 			<View style={styles.housingDetail}>
 				<Image style={styles.picture} source={{ uri: listing.picture.picture }} />
@@ -22,7 +22,6 @@ export default class HousingDetail extends React.Component {
 					</View>
 					<View style={styles.ratingAndPrice}>
 						<StarRating rating={listing.star_rating} size={30} />
-						<Text><Text style={styles.price}>{ pricing_quote.rate.amount_formatted }</Text> / nuit</Text>
 					</View>
 				</View>
 			</View>
