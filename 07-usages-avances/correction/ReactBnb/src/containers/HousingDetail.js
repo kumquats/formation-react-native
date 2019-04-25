@@ -9,9 +9,9 @@ class HousingDetail extends React.Component {
     static navigationOptions = {
         title: 'Détail d\'un logement'
     };
-    
+
 	componentWillMount() {
-        this.props.fetchHousingDetail( this.props.navigation.state.params.id );
+        this.props.fetchHousingDetail( this.props.navigation.getParam('id', 0) );
 	}
 
     render() {
@@ -41,7 +41,7 @@ class HousingDetail extends React.Component {
     }
 }
 
-function mapStateTopProps( state ) {
+function mapStateToProps( state ) {
     return {
         housing: state.housingDetail
     };
@@ -51,7 +51,7 @@ function mapDispatchTopProps( dispatch ) {
     return bindActionCreators( { fetchHousingDetail }, dispatch );
 }
 
-export default connect( mapStateTopProps, mapDispatchTopProps )( HousingDetail );
+export default connect( mapStateToProps, mapDispatchTopProps )( HousingDetail );
 
 
 const styles = StyleSheet.create({

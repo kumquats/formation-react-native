@@ -11,12 +11,12 @@ class HousingDetail extends React.Component {
 	};
 
 	componentDidMount() {
-        this.props.fetchHousingDetail( this.props.navigation.state.params.id );
+        this.props.fetchHousingDetail( this.props.navigation.getParam('id', 0) );
 	}
 
     render() {
 		if ( this.props.housing ) {
-			const { listing, pricing_quote } = this.props.housing;
+			const { listing } = this.props.housing;
 			return (
 				<View style={styles.housingDetail}>
 					<Image style={styles.picture} source={{ uri: listing.picture.picture }} />
@@ -31,7 +31,6 @@ class HousingDetail extends React.Component {
 						</View>
 						<View style={styles.ratingAndPrice}>
 							<StarRating rating={listing.star_rating} size={30} />
-							<Text><Text style={styles.price}>{ pricing_quote.rate.amount_formatted }</Text> / nuit</Text>
 						</View>
 					</View>
 				</View>
