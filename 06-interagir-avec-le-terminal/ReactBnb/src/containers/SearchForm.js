@@ -15,7 +15,6 @@ const CityInput = props => {
 
 const DateInput = props => {
 	const { input, ...inputProps } = props;
-	debugger;
     return <TextInput
                 placeholder={inputProps.placeholder}
                 onFocus={() => {
