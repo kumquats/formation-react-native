@@ -13,7 +13,15 @@ Utiliser le GPS pour géolocaliser l'utilisateur et faciliter la recherche
 1. Ajouter un bouton "geolocalisez-moi" dans le composant `SearchForm`
 2. Au press sur ce bouton déclencher un action creator `geolocate` qui :
     + Récupère la position du téléphone grâce à l'API de Géolocalisation
-    + Récupère le nom de la ville grâce au webservice de geocoding:  `"https://geocode.xyz/${latitude},${longitude}?json=1"`
+    + Récupère ensuite le nom de la ville grâce au webservice de reverse geocoding:  `"https://geocode.xyz/${latitude},${longitude}?json=1"`
+
+		**Attention,** l'API geocode.xyz est soumise à des restrictions d'accès qui font que votre : pour éviter que des utilisateurs ne saturent leurs serveurs, un quota d'appels est appliqué à chaque utilisateur. L'appel à `fetch()` va donc retourner une erreur.
+
+		Pour résoudre le problème, il faut passer à `fetch()` un second paramètre qui va permettre aux serveurs de geocode.xyz d'identifier votre appli et de l'autoriser à accéder aux webservices (le premier appel continuera de retourner une erreur, mais tous les appels suivants seront autorisés sous réserve que vous ne dépassiez pas le quota autorisé par geocode.xyz !) :
+
+		```js
+		fetch( url, { credentials:'include' } )
+		```
     + Modifie la valeur du champ `city` grâce à l'action creator `change` fourni par redux-form et qui permet de mettre à jour la valeur d'un champ :
         ```js
         import { change } from 'redux-form';
