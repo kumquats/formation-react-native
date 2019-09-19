@@ -23,7 +23,7 @@ L'objectif des TPs de cette formation sera de créer un clone de l'application A
 	```bash
 	react-native run-android
 	```
-2. **Afficher le menu de debug de l'app** soit en secouant le téléphone, soit via un appui long sur la touche menu (ne fonctionne que sur certains téléphones) soit en tapant fans la console la commande `adb shell input keyevent 82` :
+2. **Afficher le menu de debug de l'app** soit en secouant le téléphone, soit via un appui long sur la touche menu (ne fonctionne que sur certains téléphones) soit en tapant dans la console la commande `adb shell input keyevent 82` :
     + Activer le Live Reload
     + modifier le contenu du fichier App.js et constater le rechargement de l'appli
 	+ Désactiver le Live Reload et Activer le Hot Reload, modifier le code JS et constater  le rafraîchissement de l'interface sans rechargement (seule la partie de code modifiée est mise à jour)
