@@ -1,4 +1,6 @@
 import {change} from 'redux-form';
+import geolocation from '@react-native-community/geolocation';
+
 export const GEOLOCATION_LOADING = 'GEOLOCATION_LOADING';
 export const GEOLOCATION_COMPLETE = 'GEOLOCATION_COMPLETE';
 
@@ -8,7 +10,7 @@ export function geolocate(){
 			// on met à jour le champ de saisie pour indiquer que la geoloc est en cours
 			.then(() => dispatch( change( 'search', 'city', 'Recherche position GPS...' ) ) )
 			// on lance la geolocalisation
-			.then(()=> new Promise((resolve, reject) => navigator.geolocation.getCurrentPosition( resolve, reject, {timeout: 20000, enableHighAccuracy:true}) ))
+			.then(()=> new Promise((resolve, reject) => geolocation.getCurrentPosition( resolve, reject, {timeout: 20000, enableHighAccuracy:true}) ))
 			// on met à jour le champ de recherche pour indiquer qu'on a trouvé les coordonnées GPS
 			.then( position => {
 				dispatch( change( 'search', 'city', `Recherche ville à ${position.coords.latitude},${position.coords.longitude}...` ) )

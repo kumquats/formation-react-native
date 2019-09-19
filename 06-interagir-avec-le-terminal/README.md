@@ -4,7 +4,11 @@
 Utiliser le GPS pour géolocaliser l'utilisateur et faciliter la recherche
 
 ## Préparatifs
-1. Ajouter la permission suivante dans le fichier `AndroidManifest.xml`
+1. Installer le module [@react-native-community/geolocation](https://github.com/react-native-community/react-native-geolocation) permettant la géolocalisation de l'utilisateur
+    ```bash
+    npm install --save @react-native-community/geolocation
+    ```
+2. Ajouter la permission suivante dans le fichier `AndroidManifest.xml`
     ```xml
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     ```
