@@ -1,11 +1,21 @@
+# OSX
+#
+.DS_Store
 *
-!.gitignore
+!/.gitignore
 !*/
 !*.md
 !*.js
+babel.config.js
+metro.config.js
+.prettierrc.js
+.eslintrc.js
+ios
+android
+node_modules
 !housings.json
 !package.json
 !star*.png
 !*.png
-ic_launcher.png
 __tests__
+_ReactBnb
