@@ -5,9 +5,9 @@ Mettre en place une navigation avec react-navigation et utiliser les composants 
 
 ## Préparatifs
 1. Repartir des fichiers du TP précédent ou du dossier demarrage fourni.
-2. Installer React Navigation
+2. Installer React Navigation et le stack-navigator
     ```bash
-        npm install --save react-navigation
+        npm install --save react-navigation react-navigation-stack
     ```
 3. Installer React Native Gesture Handlers
     ```bash
